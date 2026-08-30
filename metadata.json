@@ -1,0 +1,8 @@
+{
+  "name": "Built by Rahul",
+  "description": "Clean, fast websites for small businesses and solo founders — built with AI-assisted tools.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
