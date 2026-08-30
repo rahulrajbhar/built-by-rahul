@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vanguard Legal Partners — Corporate, Venture & Technology Counsel | Sample Site by Built by Rahul</title>
+<meta name="description" content="Sample corporate law firm website built by Built by Rahul — demonstrating high-trust attorney profiles, practice area depth, and case evaluation intake.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0B0E14;
+  --bg-card: #121722;
+  --bg-card-hover: #181F2E;
+  --border: #232D40;
+  --border-light: #34435F;
+  --gold: #D4AF37;
+  --gold-soft: rgba(212, 175, 55, 0.12);
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
+  --text-faint: #64748B;
+  --font-serif: 'Cinzel', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background-color: var(--bg);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.law-banner {
+  background: #06080B;
+  color: #94A3B8;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  text-align: center;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.law-banner a { color: var(--gold); text-decoration: none; font-weight: 700; }
+
+.wrap {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11, 14, 20, 0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 76px;
+}
+.brand {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+.brand span { color: var(--gold); }
+.nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 9px 20px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-cta:hover { background: var(--gold); color: #000; }
+
+@media (max-width: 768px) { .nav-links { display: none; } }
+
+/* HERO */
+.hero {
+  padding: 96px 0 72px;
+  border-bottom: 1px solid var(--border);
+}
+.hero-tag {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 5.5vw, 58px);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: 0.02em;
+  max-width: 20ch;
+  margin-bottom: 24px;
+}
+.hero-title span { color: var(--gold); }
+.hero-desc {
+  font-size: 18px;
+  color: var(--text-muted);
+  max-width: 54ch;
+  margin-bottom: 40px;
+  line-height: 1.65;
+}
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn-gold {
+  background: var(--gold);
+  color: #000;
+  padding: 13px 28px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 14.5px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.btn-gold:hover { background: #e5c358; }
+.btn-outline {
+  border: 1px solid var(--border-light);
+  color: #fff;
+  padding: 13px 26px;
+  border-radius: 4px;
+  font-size: 14.5px;
+  text-decoration: none;
+}
+
+/* STATS */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 64px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+@media (max-width: 768px) { .stats-row { grid-template-columns: repeat(2, 1fr); } }
+.stat-val {
+  font-family: var(--font-serif);
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.stat-name { font-size: 13px; color: var(--text-muted); }
+
+/* SECTIONS */
+section {
+  padding: 88px 0;
+  border-bottom: 1px solid var(--border);
+}
+.sec-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.sec-title {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4vw, 40px);
+  margin-bottom: 16px;
+}
+.sec-desc {
+  color: var(--text-muted);
+  font-size: 16px;
+  max-width: 56ch;
+  margin-bottom: 48px;
+}
+
+/* PRACTICE AREAS */
+.practices-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 860px) { .practices-grid { grid-template-columns: 1fr; } }
+.practice-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 32px 28px;
+  transition: border-color 0.2s;
+}
+.practice-card:hover { border-color: var(--gold); }
+.practice-num { font-family: var(--font-mono); font-size: 12px; color: var(--gold); margin-bottom: 16px; }
+.practice-title { font-family: var(--font-serif); font-size: 20px; margin-bottom: 12px; }
+.practice-text { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+/* INTAKE FORM */
+.intake-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 44px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 48px;
+}
+@media (max-width: 768px) { .intake-box { grid-template-columns: 1fr; padding: 28px; gap: 32px; } }
+.form-ctrl { margin-bottom: 16px; }
+.form-ctrl label { display: block; font-size: 12.5px; font-weight: 600; margin-bottom: 6px; color: var(--text-muted); }
+.form-ctrl input, .form-ctrl select, .form-ctrl textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  background: #0B0E14;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+.form-ctrl input:focus, .form-ctrl select:focus, .form-ctrl textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+footer {
+  padding: 48px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--text-faint);
+}
+footer a { color: var(--gold); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="law-banner">
+  Sample Legal Counsel Build by <a href="index.html">Built by Rahul</a> · Venture Capital & Corporate Law Practice
+</div>
+
+<header>
+  <div class="wrap nav-inner">
+    <a href="#hero" class="brand">VANGUARD <span>LEGAL</span></a>
+    <nav class="nav-links">
+      <a href="#practices">Practices</a>
+      <a href="#track-record">Transactions</a>
+      <a href="#evaluation">Case Evaluation</a>
+    </nav>
+    <a href="#evaluation" class="nav-cta">Confidential Consultation</a>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <section class="hero" id="hero" style="border-top:none;">
+    <div class="hero-tag">Corporate, M&A & Technology Counsel · Mumbai & Bengaluru</div>
+    <h1 class="hero-title">Strategic legal counsel for <span>high-growth companies</span> & founders.</h1>
+    <p class="hero-desc">We structure complex venture equity rounds, protect mission-critical intellectual property, and negotiate cross-border commercial transactions with surgical precision.</p>
+    <div class="hero-actions">
+      <a href="#evaluation" class="btn-gold">Request Partner Consultation →</a>
+      <a href="#practices" class="btn-outline">Explore Practice Areas</a>
+    </div>
+
+    <div class="stats-row">
+      <div>
+        <div class="stat-val">$340M+</div>
+        <div class="stat-name">Venture Transactions Closed</div>
+      </div>
+      <div>
+        <div class="stat-val">180+</div>
+        <div class="stat-name">Tech Startups & Funds Advised</div>
+      </div>
+      <div>
+        <div class="stat-val">100%</div>
+        <div class="stat-name">Partner-Led Matter Oversight</div>
+      </div>
+      <div>
+        <div class="stat-val">Tier 1</div>
+        <div class="stat-name">VC Legal Advisory Recognition</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="practices">
+    <div class="sec-tag">01 — Practice Areas</div>
+    <h2 class="sec-title">Comprehensive corporate & commercial representation</h2>
+    <p class="sec-desc">Direct partner accessibility on every transaction without junior delegating.</p>
+
+    <div class="practices-grid">
+      <div class="practice-card">
+        <div class="practice-num">PRACTICE 01</div>
+        <h3 class="practice-title">Venture Capital & Growth Equity</h3>
+        <p class="practice-text">Seed to Series C round documentation, SHA & SSA drafting, investor negotiation, and founder vesting protections.</p>
+      </div>
+
+      <div class="practice-card">
+        <div class="practice-num">PRACTICE 02</div>
+        <h3 class="practice-title">Tech IP, Licensing & AI Governance</h3>
+        <p class="practice-text">Global patent structuring, proprietary algorithm licensing, source-code escrow, and data compliance frameworks.</p>
+      </div>
+
+      <div class="practice-card">
+        <div class="practice-num">PRACTICE 03</div>
+        <h3 class="practice-title">Cross-Border Mergers & Acquisitions</h3>
+        <p class="practice-text">Asset and share purchase agreements, corporate restructuring, regulatory RBI filings, and escrow escrow operations.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="evaluation">
+    <div class="sec-tag">02 — Matter Intake</div>
+    <div class="intake-box">
+      <div>
+        <h2 class="sec-title" style="font-size:32px;">Confidential case evaluation.</h2>
+        <p style="color:var(--text-muted); font-size:15px; margin-bottom:24px;">All inquiries are protected by attorney-client privilege. Our partners respond within one business day.</p>
+        <div style="font-size:13.5px; color:var(--text-faint); line-height:2; font-family:var(--font-mono);">
+          <div>OFFICE: Express Towers, Nariman Point, Mumbai</div>
+          <div>EMAIL: counsel@vanguardlegal-sample.in</div>
+        </div>
+      </div>
+
+      <form onsubmit="event.preventDefault(); document.getElementById('legalMsg').style.display='block'; this.reset();">
+        <div class="form-ctrl">
+          <label>Full Name & Title</label>
+          <input type="text" placeholder="e.g. Siddharth Kapoor, Co-Founder & CEO" required>
+        </div>
+        <div class="form-ctrl">
+          <label>Corporate Email</label>
+          <input type="email" placeholder="siddharth@startup.io" required>
+        </div>
+        <div class="form-ctrl">
+          <label>Matter Type</label>
+          <select>
+            <option>Venture Capital Fundraising / Term Sheet</option>
+            <option>M&A / Acquisition Negotiation</option>
+            <option>IP Protection & Software Licensing</option>
+            <option>Commercial Dispute / Arbitration</option>
+          </select>
+        </div>
+        <div class="form-ctrl">
+          <label>Brief Matter Summary</label>
+          <textarea rows="3" placeholder="Brief outline of the situation or upcoming transaction timeline..."></textarea>
+        </div>
+        <button type="submit" class="btn-gold" style="width:100%; border:none; cursor:pointer;">Submit for Partner Review →</button>
+        <div id="legalMsg" style="display:none; color:var(--gold); font-family:var(--font-mono); font-size:13px; text-align:center; margin-top:12px;">
+          ✓ Matter details received under privileged counsel protocol.
+        </div>
+      </form>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; align-items:center; flex-wrap:wrap; gap:16px;">
+    <div>© 2026 Vanguard Legal Partners. Sample legal practice website.</div>
+    <div>Built by <a href="index.html">Built by Rahul</a> — Custom websites for professional practices.</div>
+  </div>
+</footer>
+
+</body>
+</html>

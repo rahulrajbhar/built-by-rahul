@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Founder Operator — Executive Leadership Cohort by Elena Vance | Sample Site by Built by Rahul</title>
+<meta name="description" content="Sample high-ticket coaching and cohort-based education website built by Built by Rahul — demonstrating curriculum showcases, social proof, and application workflows.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAF8F5;
+  --bg-card: #FFFFFF;
+  --ink: #1C1917;
+  --ink-light: #57534E;
+  --ink-faint: #8E8984;
+  --border: #E7E2DB;
+  --burgundy: #7C2D37;
+  --burgundy-soft: rgba(124, 45, 55, 0.08);
+  --gold: #D97706;
+  --font-display: 'Fraunces', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.notice {
+  background: var(--burgundy);
+  color: #FCE7EB;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  text-align: center;
+  padding: 8px 16px;
+}
+.notice a { color: #FDE047; font-weight: 700; text-decoration: none; }
+
+.wrap {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 248, 245, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+}
+.brand {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+}
+.brand span { color: var(--burgundy); font-style: italic; }
+.nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+.nav-links a {
+  color: var(--ink-light);
+  text-decoration: none;
+  font-size: 14.5px;
+  font-weight: 600;
+}
+.nav-cta {
+  background: var(--burgundy);
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 100px;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.nav-cta:hover { background: #601f27; }
+
+@media (max-width: 768px) { .nav-links { display: none; } }
+
+/* HERO */
+.hero {
+  padding: 88px 0 64px;
+}
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--burgundy-soft);
+  color: var(--burgundy);
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 6vw, 64px);
+  font-weight: 700;
+  line-height: 1.1;
+  max-width: 19ch;
+  margin-bottom: 24px;
+}
+.hero-title em { font-style: italic; color: var(--burgundy); }
+.hero-desc {
+  font-size: 18px;
+  color: var(--ink-light);
+  max-width: 52ch;
+  margin-bottom: 36px;
+  line-height: 1.65;
+}
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  background: var(--burgundy);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+}
+.btn-outline {
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--ink);
+  padding: 14px 26px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+/* CURRICULUM */
+section {
+  padding: 88px 0;
+  border-top: 1px solid var(--border);
+}
+.sec-tag {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+.sec-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4.5vw, 42px);
+  margin-bottom: 16px;
+}
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+@media (max-width: 768px) { .module-grid { grid-template-columns: 1fr; } }
+.module-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 32px;
+}
+.module-week { font-family: var(--font-mono); font-size: 11.5px; color: var(--burgundy); font-weight: 700; margin-bottom: 10px; }
+.module-title { font-family: var(--font-display); font-size: 20px; margin-bottom: 10px; }
+.module-desc { font-size: 14px; color: var(--ink-light); }
+
+/* APPLICATION FORM */
+.apply-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 44px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 48px;
+}
+@media (max-width: 768px) { .apply-box { grid-template-columns: 1fr; padding: 28px; gap: 32px; } }
+.form-grp { margin-bottom: 16px; }
+.form-grp label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+.form-grp input, .form-grp textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+
+footer {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+footer a { color: var(--burgundy); text-decoration: none; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="notice">
+  Sample Executive Coaching & Cohort Build by <a href="index.html">Built by Rahul</a> · Founder Leadership
+</div>
+
+<header>
+  <div class="wrap nav-inner">
+    <a href="#hero" class="brand">THE FOUNDER <span>OPERATOR</span></a>
+    <nav class="nav-links">
+      <a href="#curriculum">Curriculum</a>
+      <a href="#outcomes">Alumni Reviews</a>
+      <a href="#apply">Apply</a>
+    </nav>
+    <a href="#apply" class="nav-cta">Apply for Cohort 12 →</a>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <section class="hero" id="hero" style="border-top:none;">
+    <div class="hero-tag">🎯 Cohort 12 Starting Soon · Limited to 25 Founders</div>
+    <h1 class="hero-title">From chaotic founder to <em>high-leverage CEO.</em></h1>
+    <p class="hero-desc">An intensive 4-week executive operating system designed for Seed and Series A founders ready to delegate, hire leadership, and scale revenue predictably.</p>
+    <div class="hero-ctas">
+      <a href="#apply" class="btn-primary">Submit Application (Takes 3 mins) →</a>
+      <a href="#curriculum" class="btn-outline">Review 4-Week Syllabus</a>
+    </div>
+  </section>
+
+  <section id="curriculum">
+    <div class="sec-tag">01 — The 4-Week Sprint</div>
+    <h2 class="sec-title">What we build together inside the cohort</h2>
+
+    <div class="module-grid">
+      <div class="module-card">
+        <div class="module-week">WEEK 01</div>
+        <h3 class="module-title">Calendar & Cognitive Audit</h3>
+        <p class="module-desc">Identify your $10k/hr high-leverage activities and ruthlessly eliminate low-value operational bottlenecks.</p>
+      </div>
+
+      <div class="module-card">
+        <div class="module-week">WEEK 02</div>
+        <h3 class="module-title">Executive Hiring Scorecards</h3>
+        <p class="module-desc">Source and interview your first Head of Growth or Operations lead without expensive recruitment agencies.</p>
+      </div>
+
+      <div class="module-card">
+        <div class="module-week">WEEK 03</div>
+        <h3 class="module-title">Weekly Cadence & Board Metrics</h3>
+        <p class="module-desc">Install asynchronous operating rhythms, departmental OKRs, and transparent investor update formats.</p>
+      </div>
+
+      <div class="module-card">
+        <div class="module-week">WEEK 04</div>
+        <h3 class="module-title">Founder Capital Allocation</h3>
+        <p class="module-desc">Model cash runway scenarios, evaluate non-linear growth bets, and build an enduring operational moat.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="apply">
+    <div class="sec-tag">02 — Cohort Admission</div>
+    <div class="apply-box">
+      <div>
+        <h2 class="sec-title" style="font-size:32px;">Cohort 12 Application</h2>
+        <p style="color:var(--ink-light); font-size:15px; margin-bottom:24px;">Applications are vetted on founder traction and commitment to ensure high peer group quality.</p>
+        <div style="font-size:13.5px; color:var(--ink-light); line-height:2;">
+          <div>📆 Format: 4 Weekly Live Sprints + 1:1 Diagnostic</div>
+          <div>👥 Class Size: Max 25 Accepted Founders</div>
+        </div>
+      </div>
+
+      <form onsubmit="event.preventDefault(); document.getElementById('coachMsg').style.display='block'; this.reset();">
+        <div class="form-grp">
+          <label>Your Name & Startup</label>
+          <input type="text" placeholder="e.g. Elena Vance, CEO of Acme Inc." required>
+        </div>
+        <div class="form-grp">
+          <label>Founder Email</label>
+          <input type="email" placeholder="elena@acme.com" required>
+        </div>
+        <div class="form-grp">
+          <label>Current Annual Revenue / Funding Stage</label>
+          <input type="text" placeholder="e.g. $800k ARR, Post-Seed" required>
+        </div>
+        <div class="form-grp">
+          <label>Single Biggest Operational Roadblock</label>
+          <textarea rows="3" placeholder="What is currently taking 60%+ of your daily bandwidth?"></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%; justify-content:center; border:none; cursor:pointer;">Submit Application for Review →</button>
+        <div id="coachMsg" style="display:none; color:var(--burgundy); font-family:var(--font-mono); font-size:13px; text-align:center; margin-top:12px;">
+          ✓ Application registered. You will hear back within 24 hours.
+        </div>
+      </form>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; align-items:center; flex-wrap:wrap; gap:16px;">
+    <div>© 2026 The Founder Operator. Sample executive education build.</div>
+    <div>Built by <a href="index.html">Built by Rahul</a> — High-converting landing pages for creators & coaches.</div>
+  </div>
+</footer>
+
+</body>
+</html>

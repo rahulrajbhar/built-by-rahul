@@ -193,12 +193,24 @@ section{ padding:88px 0; border-top:1px solid var(--border); }
 .sample-preview-studio{ background:linear-gradient(160deg,#171512,#2E2820); }
 .sample-preview-advisory{ background:linear-gradient(160deg,#0A2330,#164257); }
 .sample-preview-pulse{ background:linear-gradient(160deg,#0E1012,#1F2428); }
+.sample-preview-saas{ background:linear-gradient(160deg,#090A0F,#181C28); }
+.sample-preview-dental{ background:linear-gradient(160deg,#0D3B36,#1D6B60); }
+.sample-preview-legal{ background:linear-gradient(160deg,#0B0E14,#1B2433); }
+.sample-preview-ceramics{ background:linear-gradient(160deg,#4A3B32,#7A6253); }
+.sample-preview-solar{ background:linear-gradient(160deg,#0B192C,#1E3E62); }
+.sample-preview-coach{ background:linear-gradient(160deg,#4A1B22,#7C2D37); }
 
 .sample-preview-inner{ width:100%; height:100%; border-radius:8px; padding:26px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 20px 40px rgba(0,0,0,0.25); min-height:220px; }
 .sample-preview-cafe .sample-preview-inner{ background:#F7F1E8; color:#3D2B1F; }
 .sample-preview-studio .sample-preview-inner{ background:#1E1C18; color:#F4F1EA; border:1px solid #38342D; }
 .sample-preview-advisory .sample-preview-inner{ background:#FFFFFF; color:#0F2D3C; border:1px solid #E2DDD5; }
 .sample-preview-pulse .sample-preview-inner{ background:#141618; color:#FFFFFF; border:1px solid #23272B; }
+.sample-preview-saas .sample-preview-inner{ background:#10131C; color:#F1F5F9; border:1px solid #262D3D; }
+.sample-preview-dental .sample-preview-inner{ background:#FFFFFF; color:#0D3B36; border:1px solid #D8E4E0; }
+.sample-preview-legal .sample-preview-inner{ background:#121722; color:#F8FAFC; border:1px solid #232D40; }
+.sample-preview-ceramics .sample-preview-inner{ background:#FAF4EE; color:#4A3B32; border:1px solid #E0D3C9; }
+.sample-preview-solar .sample-preview-inner{ background:#FFFFFF; color:#0B192C; border:1px solid #E0E5EB; }
+.sample-preview-coach .sample-preview-inner{ background:#FFFFFF; color:#1C1917; border:1px solid #E7E2DB; }
 
 .sample-preview-brand{ font-size:22px; font-weight:700; line-height:1.2; }
 .sample-preview-tag{ font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; margin-top:6px; }
@@ -354,11 +366,13 @@ footer{ border-top:1px solid var(--border); padding:32px 0; display:flex; justif
     <p class="sec-intro reveal">Rather than showcasing generic templates or client projects behind NDAs, explore these full, working sample builds across different small-business and founder archetypes.</p>
 
     <div class="sample-filter-bar reveal" id="sampleFilters">
-      <button class="sample-filter-btn active" onclick="filterSamples('all')">All Samples (4)</button>
-      <button class="sample-filter-btn" onclick="filterSamples('hospitality')">Café & Hospitality</button>
-      <button class="sample-filter-btn" onclick="filterSamples('studio')">Architecture & Design</button>
-      <button class="sample-filter-btn" onclick="filterSamples('advisory')">Finance & Advisory</button>
-      <button class="sample-filter-btn" onclick="filterSamples('fitness')">Boutique Fitness</button>
+      <button class="sample-filter-btn active" onclick="filterSamples('all', this)">All Samples (10)</button>
+      <button class="sample-filter-btn" onclick="filterSamples('saas', this)">SaaS & Tech</button>
+      <button class="sample-filter-btn" onclick="filterSamples('advisory', this)">Finance & Legal</button>
+      <button class="sample-filter-btn" onclick="filterSamples('healthcare', this)">Healthcare & Fitness</button>
+      <button class="sample-filter-btn" onclick="filterSamples('hospitality', this)">Food & D2C</button>
+      <button class="sample-filter-btn" onclick="filterSamples('studio', this)">Architecture & Trades</button>
+      <button class="sample-filter-btn" onclick="filterSamples('creator', this)">Coaching & Education</button>
     </div>
 
     <div class="samples-grid reveal" id="samplesGrid">
@@ -457,7 +471,7 @@ footer{ border-top:1px solid var(--border); padding:32px 0; display:flex; justif
       </div>
 
       <!-- Sample 4: Boutique Fitness -->
-      <div class="sample-card" data-category="fitness">
+      <div class="sample-card" data-category="healthcare">
         <div class="sample-preview sample-preview-pulse">
           <div class="sample-preview-inner">
             <div>
@@ -484,6 +498,192 @@ footer{ border-top:1px solid var(--border); padding:32px 0; display:flex; justif
             </div>
           </div>
           <a class="btn btn-primary" href="sample-pulse-fitness.html" style="align-self:flex-start;">Open Studio Sample →</a>
+        </div>
+      </div>
+
+      <!-- Sample 5: B2B SaaS -->
+      <div class="sample-card" data-category="saas">
+        <div class="sample-preview sample-preview-saas">
+          <div class="sample-preview-inner">
+            <div>
+              <div class="sample-preview-brand" style="color:#F1F5F9; font-size:22px; font-weight:800;">NexusFlow<span style="color:#38BDF8;">.io</span></div>
+              <div class="sample-preview-tag" style="color:#38BDF8;">Developer Workflow Automation</div>
+            </div>
+            <div style="font-size:12px; color:#94A3B8; line-height:1.4;">"Automate asynchronous queues with zero server overhead."</div>
+            <a class="sample-preview-cta" style="background:#38BDF8; color:#090A0F; font-weight:700;" href="sample-nexus-flow-saas.html">Explore Platform →</a>
+          </div>
+        </div>
+        <div class="sample-body">
+          <div>
+            <div class="sample-header-row">
+              <span class="sample-label">Software / Micro-SaaS</span>
+              <span class="sample-turnaround">~1 Week Turnaround</span>
+            </div>
+            <div class="sample-title">NexusFlow Cloud Platform</div>
+            <div class="sample-desc">A product landing page built for technical SaaS founders — featuring <strong>interactive code/terminal demo simulations, monthly vs. annual pricing toggles, feature matrix, and trial sign-up CTAs</strong>.</div>
+            <div class="sample-features">
+              <span class="sample-pill">Interactive Code Simulation</span>
+              <span class="sample-pill">Annual / Monthly Billing Switch</span>
+              <span class="sample-pill">Feature Grid Cards</span>
+              <span class="sample-pill">Developer Docs Entry</span>
+            </div>
+          </div>
+          <a class="btn btn-primary" href="sample-nexus-flow-saas.html" style="align-self:flex-start;">Open SaaS Sample →</a>
+        </div>
+      </div>
+
+      <!-- Sample 6: Dental Clinic -->
+      <div class="sample-card" data-category="healthcare">
+        <div class="sample-preview sample-preview-dental">
+          <div class="sample-preview-inner">
+            <div>
+              <div class="sample-preview-brand" style="font-family:'Playfair Display', serif; color:#0D3B36; font-size:24px;">Lumina Dental</div>
+              <div class="sample-preview-tag" style="color:#2A8578;">Cosmetic & Implant Dentistry</div>
+            </div>
+            <div style="font-size:12px; color:#566864; line-height:1.4;">"Gentle, precise dentistry for natural, lasting smiles."</div>
+            <a class="sample-preview-cta" style="background:#125E54; color:#FFFFFF;" href="sample-lumina-dental.html">Book Patient Slot →</a>
+          </div>
+        </div>
+        <div class="sample-body">
+          <div>
+            <div class="sample-header-row">
+              <span class="sample-label">Healthcare & Medical Clinic</span>
+              <span class="sample-turnaround">~1 Week Turnaround</span>
+            </div>
+            <div class="sample-title">Lumina Dental & Aesthetics</div>
+            <div class="sample-desc">A clinical site designed to build immediate patient trust — with <strong>treatment service catalogs (Invisalign, Veneers, Implants), doctor credential badges, and online appointment booking</strong>.</div>
+            <div class="sample-features">
+              <span class="sample-pill">Clinical Service Guides</span>
+              <span class="sample-pill">Specialist Doctor Profiles</span>
+              <span class="sample-pill">Instant Appointment Triage</span>
+              <span class="sample-pill">Emergency Notice</span>
+            </div>
+          </div>
+          <a class="btn btn-primary" href="sample-lumina-dental.html" style="align-self:flex-start;">Open Dental Sample →</a>
+        </div>
+      </div>
+
+      <!-- Sample 7: Law Practice -->
+      <div class="sample-card" data-category="advisory">
+        <div class="sample-preview sample-preview-legal">
+          <div class="sample-preview-inner">
+            <div>
+              <div class="sample-preview-brand" style="font-family:'Cinzel', serif; color:#F8FAFC; font-size:20px; letter-spacing:0.04em;">Vanguard Legal</div>
+              <div class="sample-preview-tag" style="color:#D4AF37;">Venture Capital & Tech Counsel</div>
+            </div>
+            <div style="font-size:12px; color:#94A3B8; line-height:1.4;">"Strategic legal counsel for high-growth companies."</div>
+            <a class="sample-preview-cta" style="background:#D4AF37; color:#000000; font-weight:700;" href="sample-vanguard-legal.html">Case Evaluation →</a>
+          </div>
+        </div>
+        <div class="sample-body">
+          <div>
+            <div class="sample-header-row">
+              <span class="sample-label">Corporate & Legal Practice</span>
+              <span class="sample-turnaround">~1 Week Turnaround</span>
+            </div>
+            <div class="sample-title">Vanguard Legal Partners</div>
+            <div class="sample-desc">An attorney website for boutique law firms — featuring <strong>practice area breakdowns, track record metrics, transaction highlights, and attorney-client matter evaluation forms</strong>.</div>
+            <div class="sample-features">
+              <span class="sample-pill">Practice Breakdown</span>
+              <span class="sample-pill">Deal Track Record</span>
+              <span class="sample-pill">Confidential Matter Intake</span>
+              <span class="sample-pill">Institutional Branding</span>
+            </div>
+          </div>
+          <a class="btn btn-primary" href="sample-vanguard-legal.html" style="align-self:flex-start;">Open Legal Sample →</a>
+        </div>
+      </div>
+
+      <!-- Sample 8: Artisanal D2C Ceramics -->
+      <div class="sample-card" data-category="hospitality">
+        <div class="sample-preview sample-preview-ceramics">
+          <div class="sample-preview-inner">
+            <div>
+              <div class="sample-preview-brand" style="font-family:'Italiana', serif; color:#4A3B32; font-size:24px;">SOL Ceramics</div>
+              <div class="sample-preview-tag" style="color:#C86D51;">Studio Stoneware & Vessels</div>
+            </div>
+            <div style="font-size:12px; color:#6B5B52; line-height:1.4;">"Hand-thrown objects for the daily table."</div>
+            <a class="sample-preview-cta" style="background:#C86D51; color:#FFFFFF;" href="sample-sol-ceramics.html">Shop Batch 08 →</a>
+          </div>
+        </div>
+        <div class="sample-body">
+          <div>
+            <div class="sample-header-row">
+              <span class="sample-label">Artisanal E-Commerce / D2C</span>
+              <span class="sample-turnaround">~1 Week Turnaround</span>
+            </div>
+            <div class="sample-title">SOL Ceramics Studio</div>
+            <div class="sample-desc">An artisanal e-commerce storefront for independent makers and product designers — featuring <strong>curated batch drops, interactive slide-out shopping cart drawer, and material provenance stories</strong>.</div>
+            <div class="sample-features">
+              <span class="sample-pill">Live Cart Drawer Simulation</span>
+              <span class="sample-pill">Product Drop Catalog</span>
+              <span class="sample-pill">Studio Provenance Section</span>
+              <span class="sample-pill">Mobile Checkout Flow</span>
+            </div>
+          </div>
+          <a class="btn btn-primary" href="sample-sol-ceramics.html" style="align-self:flex-start;">Open Store Sample →</a>
+        </div>
+      </div>
+
+      <!-- Sample 9: Solar & Home Services Contractor -->
+      <div class="sample-card" data-category="studio">
+        <div class="sample-preview sample-preview-solar">
+          <div class="sample-preview-inner">
+            <div>
+              <div class="sample-preview-brand" style="color:#0B192C; font-size:22px; font-weight:800;">Apex Solar</div>
+              <div class="sample-preview-tag" style="color:#FF6500;">Rooftop Clean Energy Systems</div>
+            </div>
+            <div style="font-size:12px; color:#4B5B6D; line-height:1.4;">"Cut your monthly electricity bill by up to 85%."</div>
+            <a class="sample-preview-cta" style="background:#FF6500; color:#FFFFFF; font-weight:700;" href="sample-apex-solar.html">Solar Estimator →</a>
+          </div>
+        </div>
+        <div class="sample-body">
+          <div>
+            <div class="sample-header-row">
+              <span class="sample-label">Contractor & Home Services</span>
+              <span class="sample-turnaround">~5 Days Turnaround</span>
+            </div>
+            <div class="sample-title">Apex Clean Energy</div>
+            <div class="sample-desc">A high-conversion lead generation site for contractors and installers — with an <strong>interactive rooftop solar savings calculator, installation milestones, and instant engineer survey intake</strong>.</div>
+            <div class="sample-features">
+              <span class="sample-pill">Live 10-Yr ROI Calculator</span>
+              <span class="sample-pill">On-Site Survey Booking</span>
+              <span class="sample-pill">Warranty & Subsidy Badges</span>
+              <span class="sample-pill">Direct Helpline Callout</span>
+            </div>
+          </div>
+          <a class="btn btn-primary" href="sample-apex-solar.html" style="align-self:flex-start;">Open Solar Sample →</a>
+        </div>
+      </div>
+
+      <!-- Sample 10: Executive Coach / High-Ticket Cohort -->
+      <div class="sample-card" data-category="creator">
+        <div class="sample-preview sample-preview-coach">
+          <div class="sample-preview-inner">
+            <div>
+              <div class="sample-preview-brand" style="font-family:'Fraunces', serif; color:#1C1917; font-size:22px;">The Founder Operator</div>
+              <div class="sample-preview-tag" style="color:#7C2D37;">4-Week Executive Cohort</div>
+            </div>
+            <div style="font-size:12px; color:#57534E; line-height:1.4;">"From chaotic founder to high-leverage CEO."</div>
+            <a class="sample-preview-cta" style="background:#7C2D37; color:#FFFFFF;" href="sample-elena-growth.html">View Syllabus →</a>
+          </div>
+        </div>
+        <div class="sample-body">
+          <div>
+            <div class="sample-header-row">
+              <span class="sample-label">Creator & Executive Coaching</span>
+              <span class="sample-turnaround">~5 Days Turnaround</span>
+            </div>
+            <div class="sample-title">The Founder Operator Cohort</div>
+            <div class="sample-desc">A cohort and coaching sales page for educators and consultants — featuring <strong>curriculum module roadmaps, seat urgency counters, alumnus outcomes, and founder application intake</strong>.</div>
+            <div class="sample-features">
+              <span class="sample-pill">Curriculum Syllabus</span>
+              <span class="sample-pill">Seat Availability Badges</span>
+              <span class="sample-pill">Vetted Application Form</span>
+              <span class="sample-pill">Editorial Typography</span>
+            </div>
+          </div>
+          <a class="btn btn-primary" href="sample-elena-growth.html" style="align-self:flex-start;">Open Cohort Sample →</a>
         </div>
       </div>
 
@@ -583,11 +783,13 @@ const io = new IntersectionObserver((entries)=>{
 },{ threshold:0.15 });
 revealEls.forEach(el=>io.observe(el));
 
-function filterSamples(category) {
+function filterSamples(category, btnEl) {
   const buttons = document.querySelectorAll('.sample-filter-btn');
   buttons.forEach(btn => btn.classList.remove('active'));
-  if (event && event.target) {
-    event.target.classList.add('active');
+  if (btnEl) {
+    btnEl.classList.add('active');
+  } else if (window.event && window.event.currentTarget) {
+    window.event.currentTarget.classList.add('active');
   }
 
   const cards = document.querySelectorAll('#samplesGrid .sample-card');
