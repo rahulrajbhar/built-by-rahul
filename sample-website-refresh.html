@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Refresh Showcase — Sample by Built by Rahul</title>
+<meta name="description" content="Sample Website Refresh build. A dated small business site rebuilt clean — same content, modern feel, 10x speed improvement, and mobile-first UX.">
+<style>
+:root {
+  --bg: #f8f9fa;
+  --card: #ffffff;
+  --ink: #111827;
+  --ink-light: #4b5563;
+  --ink-faint: #9ca3af;
+  --border: #e5e7eb;
+  --red: #dc2626;
+  --blue: #1d4ed8;
+  --blue-light: #eff6ff;
+  --green: #16a34a;
+  --green-light: #f0fdf4;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Sample Bar */
+.sample-bar {
+  background: #111827;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-family: var(--font-mono);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  gap: 12px;
+}
+.sample-bar a { color: #93c5fd; text-decoration: none; font-weight: 600; white-space: nowrap; }
+.sample-bar a:hover { text-decoration: underline; }
+.sample-badge { background: #374151; color: #fff; padding: 3px 8px; border-radius: 4px; font-size: 11px; margin-right: 8px; display: inline-block; }
+
+/* Interactive Mode Controller Strip */
+.mode-strip {
+  background: #ffffff;
+  border-bottom: 2px solid var(--border);
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 80;
+}
+.mode-title { font-size: 13px; font-weight: 700; color: var(--ink); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.mode-switcher { display: flex; background: #f3f4f6; padding: 3px; border-radius: 8px; border: 1px solid var(--border); }
+@media (max-width: 600px) {
+  .mode-switcher {
+    width: 100%;
+  }
+  .mode-btn {
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+}
+.mode-btn {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  color: var(--ink-light);
+  transition: all .15s;
+  white-space: nowrap;
+}
+.mode-btn.active {
+  background: #ffffff;
+  color: var(--ink);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Comparison Metrics Box */
+.metrics-banner {
+  max-width: 1120px;
+  margin: 20px auto 0;
+  padding: 0 20px;
+}
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+@media (max-width: 768px) { 
+  .metrics-grid { 
+    grid-template-columns: 1fr 1fr; 
+    gap: 14px;
+    padding: 16px;
+  } 
+}
+@media (max-width: 480px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .metric-col {
+    border-right: none !important;
+    border-bottom: 1px solid #f3f4f6;
+    padding-bottom: 10px;
+  }
+  .metric-col:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+.metric-col { border-right: 1px solid #f3f4f6; padding-right: 12px; }
+.metric-col:last-child { border-right: none; }
+.metric-name { font-size: 11.5px; font-family: var(--font-mono); color: var(--ink-faint); text-transform: uppercase; margin-bottom: 4px; }
+.metric-vals { display: flex; align-items: baseline; gap: 8px; }
+.val-old { font-size: 13.5px; color: var(--red); text-decoration: line-through; }
+.val-new { font-size: 19px; font-weight: 800; color: var(--green); }
+
+/* MODERN THEME (Default) */
+.modern-view { display: block; }
+.dated-view { display: none; }
+
+/* Modern Layout */
+.container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+.modern-header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0;
+}
+.modern-nav { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.modern-brand { font-size: 18px; font-weight: 800; color: #1e3a8a; text-decoration: none; display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+.modern-links { display: flex; gap: 20px; align-items: center; }
+.modern-links a { color: var(--ink-light); text-decoration: none; font-size: 14px; font-weight: 500; white-space: nowrap; }
+.btn-book {
+  background: #1e3a8a;
+  color: #fff;
+  padding: 9px 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile Adaptations */
+@media (max-width: 768px) {
+  .sample-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+  .sample-bar > div:last-child {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #374151;
+    padding-top: 6px;
+  }
+  .modern-links {
+    display: none;
+  }
+  .container {
+    padding: 0 16px;
+  }
+  .metrics-banner {
+    padding: 0 16px;
+  }
+}
+
+/* Modern Hero */
+.modern-hero { padding: 60px 0 50px; }
+@media (max-width: 768px) {
+  .modern-hero {
+    padding: 36px 0 30px;
+  }
+}
+.m-hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+@media (max-width: 800px) { .m-hero-grid { grid-template-columns: 1fr; gap: 24px; } }
+.m-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--blue-light);
+  color: var(--blue);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.modern-hero h1 {
+  font-size: clamp(28px, 4.4vw, 46px);
+  font-weight: 800;
+  line-height: 1.18;
+  color: #0f172a;
+  margin-bottom: 14px;
+}
+.modern-hero p { font-size: 16px; color: var(--ink-light); margin-bottom: 24px; line-height: 1.6; }
+.m-hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+@media (max-width: 640px) {
+  .m-hero-ctas {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .m-hero-ctas a {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+}
+.btn-m-primary { background: #1e3a8a; color: #fff; padding: 12px 24px; border-radius: 6px; font-weight: 600; font-size: 14.5px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+.btn-m-secondary { background: #fff; color: var(--ink); padding: 12px 22px; border-radius: 6px; font-weight: 600; font-size: 14.5px; text-decoration: none; border: 1px solid var(--border); display: inline-flex; align-items: center; justify-content: center; }
+
+.m-hero-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 24px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+}
+@media (max-width: 640px) {
+  .m-hero-card {
+    padding: 20px 16px;
+  }
+}
+
+.m-input {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 16px; /* iOS Safari 16px zoom prevention */
+  box-sizing: border-box;
+  font-family: inherit;
+  outline: none;
+}
+.m-input:focus {
+  border-color: var(--blue);
+}
+
+/* Modern Services */
+.m-services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px; }
+@media (max-width: 800px) { .m-services-grid { grid-template-columns: 1fr; gap: 16px; } }
+.m-service-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 26px 22px;
+  transition: transform .15s;
+}
+.m-service-card:hover { transform: translateY(-2px); border-color: #cbd5e1; }
+.m-service-icon { font-size: 26px; margin-bottom: 14px; }
+.m-service-card h3 { font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 8px; }
+.m-service-card p { font-size: 14px; color: var(--ink-light); line-height: 1.5; }
+
+/* Booking Section */
+.m-booking-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 28px;
+  margin: 40px 0;
+}
+@media (max-width: 768px) {
+  .m-booking-card {
+    padding: 20px 16px;
+    margin: 30px 0;
+  }
+  .m-booking-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+}
+.m-booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* DATED 2012 THEME (Simulated Old Layout) */
+.dated-view {
+  background: #d4d0c8;
+  padding: 20px 0 60px;
+  font-family: "Times New Roman", Times, serif;
+}
+.dated-table-wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 4px ridge #808080;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+}
+.dated-banner {
+  background: linear-gradient(to bottom, #003366 0%, #001a33 100%);
+  color: #ffff00;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 3px solid #ffcc00;
+}
+.dated-nav-table {
+  width: 100%;
+  background: #c0c0c0;
+  border-collapse: collapse;
+}
+.dated-nav-table td {
+  padding: 6px 12px;
+  border: 2px outset #ffffff;
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+}
+.dated-nav-table a { color: #000080; text-decoration: underline; }
+.dated-content { padding: 20px; }
+.dated-btn {
+  background: #e0e0e0;
+  border: 2px outset #ffffff;
+  padding: 4px 10px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* Refresh Philosophy Note */
+.refresh-note-box {
+  background: var(--blue-light);
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 40px;
+}
+.refresh-note-box h3 { font-size: 16px; font-weight: 700; color: #1e3a8a; margin-bottom: 6px; }
+.refresh-note-box p { font-size: 14px; color: #1e40af; line-height: 1.5; }
+
+/* Footer */
+footer { padding: 40px 0; text-align: center; font-size: 13px; color: var(--ink-faint); }
+footer a { color: var(--ink); text-decoration: none; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="sample-bar">
+  <div>
+    <span class="sample-badge">SAMPLE 04 — WEBSITE REFRESH</span>
+    <span>A dated business site rebuilt clean: same content, zero downtime, 10x faster load speed.</span>
+  </div>
+  <div>
+    <a href="index.html#sample">← Back to Built by Rahul</a>
+  </div>
+</div>
+
+<div class="mode-strip">
+  <div class="mode-title">
+    <span>Live Comparison View:</span>
+    <span id="cur-mode-lbl" style="color:var(--blue); font-weight:700;">Rebuilt Clean (2026 Modern)</span>
+  </div>
+
+  <div class="mode-switcher">
+    <button class="mode-btn active" onclick="setMode('modern')">⚡ Rebuilt Clean (2026)</button>
+    <button class="mode-btn" onclick="setMode('dated')">⚠️ Original Dated (2012 Layout)</button>
+  </div>
+</div>
+
+<!-- Performance Metrics Bar -->
+<div class="metrics-banner">
+  <div class="metrics-grid">
+    <div class="metric-col">
+      <div class="metric-name">Google PageSpeed</div>
+      <div class="metric-vals">
+        <span class="val-old">31/100</span>
+        <span class="val-new">99/100</span>
+      </div>
+    </div>
+    <div class="metric-col">
+      <div class="metric-name">Load Time (3G Mobile)</div>
+      <div class="metric-vals">
+        <span class="val-old">5.8s</span>
+        <span class="val-new">0.3s</span>
+      </div>
+    </div>
+    <div class="metric-col">
+      <div class="metric-name">Mobile Friendliness</div>
+      <div class="metric-vals">
+        <span class="val-old">Broken / Pinch-Zoom</span>
+        <span class="val-new">100% Fluid</span>
+      </div>
+    </div>
+    <div class="metric-col">
+      <div class="metric-name">Monthly Inquiries</div>
+      <div class="metric-vals">
+        <span class="val-old">Baseline</span>
+        <span class="val-new">+180% Lift</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= MODERN REBUILT VIEW (DEFAULT) ================= -->
+<div id="view-modern" class="modern-view">
+  <header class="modern-header" style="margin-top:20px;">
+    <div class="container modern-nav">
+      <a href="#m-hero" class="modern-brand">
+        <span style="background:#1e3a8a; color:#fff; width:28px; height:28px; border-radius:6px; display:inline-flex; align-items:center; justify-content:center; font-size:14px;">⚙</span>
+        Heritage Precision Auto
+      </a>
+      <nav class="modern-links">
+        <a href="#m-services">Services</a>
+        <a href="#m-about">Why Heritage</a>
+        <a href="#m-reviews">Reviews</a>
+        <a href="#m-book">Location & Hours</a>
+      </nav>
+      <a href="#m-book" class="btn-book">Book Inspection</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section id="m-hero" class="modern-hero">
+      <div class="m-hero-grid">
+        <div>
+          <div class="m-hero-badge">✦ 28 Years Serving Mumbai & Fleet Operators</div>
+          <h1>Honest automotive repairs, fair pricing, zero guesswork.</h1>
+          <p>Certified master technicians for European, Japanese, and commercial fleet vehicles. Get real-time digital inspection video reports sent directly to your phone before any work begins.</p>
+          <div class="m-hero-ctas">
+            <a href="#m-book" class="btn-m-primary">Schedule Same-Day Service →</a>
+            <a href="#m-services" class="btn-m-secondary">View Repair Menu</a>
+          </div>
+          <div style="font-size:13.5px; color:var(--ink-faint); display:flex; gap:16px;">
+            <span>✓ 2-Year / 24,000 km Warranty</span>
+            <span>✓ Free Shuttle Service</span>
+          </div>
+        </div>
+
+        <div class="m-hero-card">
+          <h3 style="font-size:17px; margin-bottom:14px; color:#0f172a;">Instant Service Estimator</h3>
+          <div style="margin-bottom:12px;">
+            <label style="display:block; font-size:12.5px; font-weight:600; margin-bottom:4px;">Vehicle Make / Model</label>
+            <input type="text" placeholder="e.g. Honda City or BMW 3-Series" class="m-input">
+          </div>
+          <div style="margin-bottom:16px;">
+            <label style="display:block; font-size:12.5px; font-weight:600; margin-bottom:4px;">Needed Service</label>
+            <select class="m-input">
+              <option>Full Scheduled Logbook Service</option>
+              <option>Brake Pad & Rotor Replacement</option>
+              <option>Computer Diagnostic / Check Engine Light</option>
+              <option>Air Conditioning Overhaul & Gas Refill</option>
+            </select>
+          </div>
+          <a href="#m-book" class="btn-m-primary" style="display:block; text-align:center;">Get Fixed-Price Quote</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="m-services" style="padding: 40px 0;">
+      <div style="text-align:center; max-width:600px; margin:0 auto;">
+        <div style="font-family:var(--font-mono); font-size:12px; color:var(--blue); text-transform:uppercase; letter-spacing:.08em;">Complete Automotive Care</div>
+        <h2 style="font-size:30px; font-weight:800; color:#0f172a; margin:6px 0 10px;">Everything your car needs under one roof.</h2>
+      </div>
+
+      <div class="m-services-grid">
+        <div class="m-service-card">
+          <div class="m-service-icon">🔧</div>
+          <h3>Scheduled Logbook Servicing</h3>
+          <p>Maintains manufacturer warranty without dealership markup. Genuine OEM filters, fluids, and multipoint safety checks.</p>
+        </div>
+        <div class="m-service-card">
+          <div class="m-service-icon">💻</div>
+          <h3>Computer Diagnostics</h3>
+          <p>State-of-the-art Bosch and Autel scanners to pinpoint engine, transmission, and sensor issues within 30 minutes.</p>
+        </div>
+        <div class="m-service-card">
+          <div class="m-service-icon">🛑</div>
+          <h3>Brakes & Suspension</h3>
+          <p>Precision pad fitting, rotor skimming, shock absorbers, and laser 4-wheel alignment for maximum road grip.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Refresh Explanation Strip -->
+    <div class="refresh-note-box">
+      <h3>Why the "Website Refresh" package is so effective for small businesses</h3>
+      <p>Heritage Auto didn't need a new brand strategy or expensive copywriting. They already had 28 years of stellar reputation and loyal customers. What they lacked was a modern, mobile-friendly site with fast contact actions. By rebuilding their exact content on clean, modern HTML and responsive CSS, their mobile conversions nearly tripled.</p>
+    </div>
+
+    <!-- Quick Booking -->
+    <div id="m-book" class="m-booking-card">
+      <div class="m-booking-grid">
+        <div>
+          <h2 style="font-size:26px; font-weight:800; color:#0f172a; margin-bottom:8px;">Visit the Workshop</h2>
+          <p style="color:var(--ink-light); margin-bottom:20px;">Open Mon – Sat from 8:00 AM to 7:00 PM. Drop off your car in the morning and pick it up ready in the evening.</p>
+          <div style="font-size:14px; color:var(--ink-light); display:flex; flex-direction:column; gap:8px;">
+            <div><strong>Location:</strong> Shed 14, Industrial Estate, Andheri East, Mumbai</div>
+            <div><strong>Helpline:</strong> +91 22 2839 4400</div>
+            <div><strong>Emergency Towing:</strong> 24/7 Service Available</div>
+          </div>
+        </div>
+
+        <form style="background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:24px;" onsubmit="handleQuickBooking(event)">
+          <h4 style="margin-bottom:12px; font-size:16px;">Quick Appointment Request</h4>
+          <input type="text" placeholder="Your Name" required class="m-input" style="margin-bottom:10px;">
+          <input type="tel" placeholder="Phone Number" required class="m-input" style="margin-bottom:14px;">
+          <button type="submit" class="btn-m-primary" style="width:100%; border:none; cursor:pointer; padding:12px;">Confirm Booking →</button>
+          <div id="m-book-success" style="display:none; color:var(--green); font-weight:600; font-size:13.5px; margin-top:12px; text-align:center;">
+            ✓ Request received! We will WhatsApp you the inspection confirmation.
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- ================= DATED 2012 REPLICA VIEW (FOR COMPARISON) ================= -->
+<div id="view-dated" class="dated-view">
+  <div class="dated-table-wrap">
+    <div class="dated-banner">
+      <h1 style="font-size:28px; margin-bottom:4px;">*** HERITAGE AUTO REPAIRS & SERVICE ***</h1>
+      <div style="font-size:13px; font-style:italic;">Serving Mumbai Motorists Since 1998 | Best Quality Parts Guaranteed</div>
+    </div>
+
+    <table class="dated-nav-table">
+      <tr>
+        <td><a href="#!">HOME</a></td>
+        <td><a href="#!">ABOUT US</a></td>
+        <td><a href="#!">OUR SERVICES</a></td>
+        <td><a href="#!">PRICING LIST</a></td>
+        <td><a href="#!">TESTIMONIALS</a></td>
+        <td><a href="#!">CONTACT US</a></td>
+      </tr>
+    </table>
+
+    <div class="dated-content">
+      <table style="width:100%;">
+        <tr>
+          <td style="width:70%; vertical-align:top; padding-right:15px;">
+            <h2 style="font-size:20px; color:#000080; border-bottom:1px solid #000; padding-bottom:4px;">WELCOME TO OUR OFFICIAL WEBSITE</h2>
+            <p style="font-size:13px; line-height:1.4; margin-top:10px;">
+              Heritage Auto Repairs has been the number one choice for honest car repairs in Andheri East for over 14 years. We offer complete car servicing, engine overhaul, denting and painting, and insurance claim processing.
+            </p>
+            <p style="font-size:13px; line-height:1.4; margin-top:8px;">
+              Please browse our website using the navigation links above or call our workshop directly during working hours.
+            </p>
+            <div style="background:#ffffcc; border:1px dashed #cc0000; padding:10px; margin-top:15px;">
+              <strong style="color:#cc0000;">SPECIAL ANNOUNCEMENT:</strong> Free 20-Point Monsoon Checkup available this month! Call workshop to schedule.
+            </div>
+          </td>
+          <td style="width:30%; vertical-align:top; background:#f0f0f0; border:1px solid #999; padding:10px; font-size:12px;">
+            <strong style="display:block; text-align:center; background:#003366; color:#fff; padding:4px;">WORKSHOP HOURS</strong>
+            <p style="margin-top:6px;">Mon-Sat: 8am - 7pm<br>Sunday: Closed</p>
+            <hr style="margin:10px 0;">
+            <strong>CONTACT PHONE:</strong><br>
+            022-2839-4400<br>
+            <hr style="margin:10px 0;">
+            <button class="dated-btn" style="width:100%;" onclick="setMode('modern')">CLICK TO VIEW MODERNIZED REBUILD</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>This is a sample build by <a href="index.html">Built by Rahul</a> — illustrating a Website Refresh for established small businesses.</p>
+  </div>
+</footer>
+
+<script>
+function setMode(mode) {
+  const modView = document.getElementById('view-modern');
+  const datView = document.getElementById('view-dated');
+  const lbl = document.getElementById('cur-mode-lbl');
+  
+  const btns = document.querySelectorAll('.mode-btn');
+  btns.forEach(b => b.classList.remove('active'));
+
+  if (mode === 'modern') {
+    modView.style.display = 'block';
+    datView.style.display = 'none';
+    lbl.textContent = 'Rebuilt Clean (2026 Modern)';
+    lbl.style.color = 'var(--blue)';
+    btns[0].classList.add('active');
+  } else {
+    modView.style.display = 'none';
+    datView.style.display = 'block';
+    lbl.textContent = 'Original Dated Site (2012 Layout)';
+    lbl.style.color = 'var(--red)';
+    btns[1].classList.add('active');
+  }
+}
+
+function handleQuickBooking(e) {
+  e.preventDefault();
+  const el = document.getElementById('m-book-success');
+  if (el) el.style.display = 'block';
+}
+</script>
+
+</body>
+</html>

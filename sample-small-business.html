@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vanguard Design & Build — Sample Small Business Site by Built by Rahul</title>
+<meta name="description" content="Sample multi-section small business website build. Home, about, services, portfolio, instant cost estimator, and contact.">
+<style>
+:root {
+  --bg: #fbfbfa;
+  --card: #ffffff;
+  --ink: #191b1d;
+  --ink-light: #4f5358;
+  --ink-faint: #858990;
+  --border: #e6e4df;
+  --navy: #1b2a3a;
+  --navy-light: #f0f4f8;
+  --copper: #c1693c;
+  --copper-light: #faefe8;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Bricolage Grotesque", -apple-system, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Sample Bar */
+.sample-bar {
+  background: var(--navy);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-family: var(--font-mono);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  gap: 12px;
+}
+.sample-bar a { color: #f5b796; text-decoration: none; font-weight: 600; white-space: nowrap; }
+.sample-bar a:hover { text-decoration: underline; }
+.sample-badge { background: rgba(255,255,255,0.15); color: #fff; padding: 3px 8px; border-radius: 4px; font-size: 11px; margin-right: 8px; display: inline-block; }
+
+/* Header & Nav */
+header {
+  background: rgba(251, 251, 250, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 90;
+}
+.nav-wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.brand {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+.brand-cube {
+  width: 18px;
+  height: 18px;
+  background: var(--copper);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.nav-links { display: flex; gap: 20px; align-items: center; }
+.nav-links a { color: var(--ink-light); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .2s; white-space: nowrap; }
+.nav-links a:hover { color: var(--copper); }
+.btn-nav {
+  background: var(--navy);
+  color: #fff;
+  padding: 9px 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background .2s;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-nav:hover { background: #2a3f55; }
+
+/* Layout */
+.container { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+section { padding: 80px 0; border-bottom: 1px solid var(--border); }
+
+/* Mobile Adaptations */
+@media (max-width: 768px) {
+  .sample-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+  .sample-bar > div:last-child {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 6px;
+  }
+  .nav-wrap {
+    padding: 12px 16px;
+  }
+  .nav-links {
+    display: none;
+  }
+  .container {
+    padding: 0 16px;
+  }
+  section {
+    padding: 48px 0;
+  }
+}
+
+/* Hero */
+.hero { padding: 90px 0 80px; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+@media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; } }
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--copper);
+  background: var(--copper-light);
+  padding: 5px 12px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: clamp(34px, 4.8vw, 54px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  margin-bottom: 20px;
+}
+.hero-desc {
+  font-size: 17px;
+  color: var(--ink-light);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 540px;
+}
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 36px; }
+@media (max-width: 640px) {
+  .hero-btns {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero-btns a {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+}
+.btn-primary {
+  background: var(--copper);
+  color: #fff;
+  padding: 13px 26px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background .2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-primary:hover { background: #ad5c32; }
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  padding: 13px 24px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1.5px solid var(--border);
+  transition: all .2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-ghost:hover { border-color: var(--ink); background: #fff; }
+
+.hero-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 34px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.04);
+}
+@media (max-width: 640px) {
+  .hero-card {
+    padding: 22px 18px;
+  }
+}
+.hero-card h3 { font-size: 18px; color: var(--navy); margin-bottom: 16px; }
+.metrics-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 20px; }
+@media (max-width: 480px) {
+  .metrics-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+.metric-box { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+.metric-num { font-size: 26px; font-weight: 800; color: var(--navy); }
+.metric-lbl { font-size: 12.5px; color: var(--ink-faint); margin-top: 2px; }
+
+/* Section Headers */
+.sec-tag { font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--copper); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; }
+.sec-title { font-size: clamp(26px, 3.8vw, 38px); font-weight: 800; color: var(--navy); letter-spacing: -0.01em; margin-bottom: 12px; line-height: 1.2; }
+.sec-sub { color: var(--ink-light); font-size: 15.5px; max-width: 580px; }
+
+/* About Section */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-top: 50px; }
+@media (max-width: 800px) { .about-grid { grid-template-columns: 1fr; gap: 30px; margin-top: 30px; } }
+.about-text p { font-size: 16px; color: var(--ink-light); margin-bottom: 16px; }
+.about-text strong { color: var(--navy); }
+.about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+@media (max-width: 480px) { .about-features { grid-template-columns: 1fr; gap: 10px; } }
+.about-feat { display: flex; gap: 10px; font-size: 14px; font-weight: 600; color: var(--navy); }
+.about-feat::before { content: "▪"; color: var(--copper); font-size: 18px; line-height: 1; }
+
+.pillars-box {
+  background: var(--navy);
+  color: #fff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.pillar-item { margin-bottom: 20px; }
+.pillar-item:last-child { margin-bottom: 0; }
+.pillar-title { font-size: 16px; font-weight: 700; color: #f5b796; margin-bottom: 4px; }
+.pillar-desc { font-size: 13.5px; color: #cbd5e1; line-height: 1.5; }
+
+/* Services Section */
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+@media (max-width: 860px) { .services-grid { grid-template-columns: 1fr; gap: 18px; } }
+.service-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 30px 24px;
+  transition: transform .2s, border-color .2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.service-card:hover { transform: translateY(-3px); border-color: var(--copper); }
+.service-num { font-family: var(--font-mono); font-size: 13px; color: var(--copper); font-weight: 700; margin-bottom: 16px; }
+.service-card h3 { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+.service-card p { font-size: 14.5px; color: var(--ink-light); line-height: 1.55; margin-bottom: 20px; }
+.service-list { list-style: none; display: flex; flex-direction: column; gap: 8px; border-top: 1px solid #f0eee9; padding-top: 18px; margin-top: auto; }
+.service-list li { font-size: 13px; color: var(--ink-light); display: flex; align-items: center; gap: 8px; }
+.service-list li::before { content: "→"; color: var(--copper); font-weight: 700; }
+
+/* Projects Gallery */
+.projects-filter { display: flex; gap: 8px; margin: 28px 0 24px; flex-wrap: wrap; }
+.filter-btn {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--ink-light);
+  transition: all .15s;
+  min-height: 38px;
+}
+.filter-btn.active, .filter-btn:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+.projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+@media (max-width: 768px) { .projects-grid { grid-template-columns: 1fr; gap: 18px; } }
+.project-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.project-img-box {
+  height: 180px;
+  background: linear-gradient(135deg, #2a3f55, #1b2a3a);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  color: #fff;
+}
+.project-tag { font-family: var(--font-mono); font-size: 11px; background: rgba(255,255,255,0.2); padding: 3px 8px; border-radius: 4px; align-self: flex-start; margin-bottom: 8px; }
+.project-card-body { padding: 20px; }
+.project-card-body h4 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+.project-card-body p { font-size: 14px; color: var(--ink-light); line-height: 1.5; margin-bottom: 16px; }
+.project-specs { display: flex; justify-content: space-between; border-top: 1px solid #f0eee9; padding-top: 14px; font-size: 12.5px; color: var(--ink-faint); flex-wrap: wrap; gap: 8px; }
+
+/* Cost Estimator */
+.estimator-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 36px 30px;
+  margin-top: 30px;
+}
+@media (max-width: 768px) {
+  .estimator-card {
+    padding: 24px 16px;
+    border-radius: 14px;
+  }
+}
+.estimator-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 36px; }
+@media (max-width: 800px) { .estimator-grid { grid-template-columns: 1fr; gap: 24px; } }
+.est-form-group { margin-bottom: 20px; }
+.est-form-group label { display: block; font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+.est-select, .est-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-size: 16px; /* iOS Safari 16px zoom prevention */
+  background: #faf9f6;
+  outline: none;
+}
+.est-select:focus, .est-input:focus { border-color: var(--copper); background: #fff; }
+.range-wrap { display: flex; align-items: center; gap: 16px; }
+.range-wrap input { flex-grow: 1; accent-color: var(--copper); }
+.range-val { font-family: var(--font-mono); font-weight: 700; font-size: 15px; min-width: 85px; text-align: right; }
+
+.estimate-output {
+  background: var(--navy-light);
+  border: 1px solid #d4e0eb;
+  border-radius: 14px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.est-price-range { font-size: 32px; font-weight: 800; color: var(--navy); margin: 10px 0 4px; }
+.est-timeline { font-size: 13.5px; color: var(--copper); font-weight: 600; margin-bottom: 20px; }
+
+/* Contact Section */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; margin-top: 40px; }
+@media (max-width: 800px) { .contact-grid { grid-template-columns: 1fr; gap: 24px; } }
+.contact-info-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 32px;
+}
+@media (max-width: 640px) {
+  .contact-info-card {
+    padding: 22px 18px;
+  }
+}
+.contact-item { margin-bottom: 20px; }
+.contact-item:last-child { margin-bottom: 0; }
+.contact-lbl { font-size: 12px; font-family: var(--font-mono); text-transform: uppercase; color: var(--ink-faint); margin-bottom: 4px; }
+.contact-val { font-size: 15px; font-weight: 600; color: var(--navy); word-break: break-word; }
+
+.contact-form-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 32px;
+}
+@media (max-width: 640px) {
+  .contact-form-card {
+    padding: 22px 18px;
+  }
+}
+.form-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+@media (max-width: 600px) {
+  .form-2col {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+/* Footer */
+footer { padding: 44px 0; text-align: center; font-size: 13px; color: var(--ink-faint); }
+footer a { color: var(--navy); font-weight: 600; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="sample-bar">
+  <div>
+    <span class="sample-badge">SAMPLE 02 — SMALL BUSINESS SITE</span>
+    <span>Full multi-section presence: Home, About, Services, Projects, Instant Estimator, and Inquiries.</span>
+  </div>
+  <div>
+    <a href="index.html#sample">← Back to Built by Rahul</a>
+  </div>
+</div>
+
+<header>
+  <div class="nav-wrap">
+    <a href="#home" class="brand"><span class="brand-cube"></span>Vanguard Build</a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#estimate">Estimator</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn-nav">Request Consultation</a>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-eyebrow">Architectural Design & Turnkey Contracting</div>
+          <h1>Homes and spaces built to outlast trends.</h1>
+          <p class="hero-desc">We design, plan, and construct residential homes, luxury renovations, and modern retail workspaces with fixed pricing and disciplined milestone delivery.</p>
+          <div class="hero-btns">
+            <a href="#estimate" class="btn-primary">Calculate Project Cost →</a>
+            <a href="#projects" class="btn-ghost">View Past Builds</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <h3>Why Mumbai Trusts Vanguard</h3>
+          <div class="metrics-row">
+            <div class="metric-box">
+              <div class="metric-num">120+</div>
+              <div class="metric-lbl">Completed Builds</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-num">14 Yrs</div>
+              <div class="metric-lbl">Studio Experience</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-num">100%</div>
+              <div class="metric-lbl">Fixed-Price Quotes</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-num">10 Yr</div>
+              <div class="metric-lbl">Structural Warranty</div>
+            </div>
+          </div>
+          <div style="font-size:13.5px; color:var(--ink-light); background:#f7f6f2; padding:12px; border-radius:8px;">
+            ✦ Licensed with Council of Architecture & Green Building Certified.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="sec-tag">01 — About Vanguard</div>
+      <h2 class="sec-title">Architectural rigor meets reliable craftsmanship.</h2>
+      <p class="sec-sub">Founded in 2012 by principal architects Vikram Sen and Ananya Rao, we eliminated the classic headaches of delayed contractors and surprise cost overruns.</p>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p>Most construction and renovation projects suffer from a disconnect between the design architect and the execution team. At Vanguard, we manage both under one unified contract.</p>
+          <p>From initial municipal sanction drawings to structural civil work, electrical engineering, custom cabinetry, and final handover, <strong>you deal with one dedicated project manager</strong> who reports weekly on progress.</p>
+          <div class="about-features">
+            <div class="about-feat">Single Point of Contact</div>
+            <div class="about-feat">Daily WhatsApp Logs</div>
+            <div class="about-feat">Zero Hidden Material Markups</div>
+            <div class="about-feat">On-Time Completion Bond</div>
+          </div>
+        </div>
+
+        <div class="pillars-box">
+          <div class="pillar-item">
+            <div class="pillar-title">1. Transparent Bill of Quantities</div>
+            <div class="pillar-desc">Every bag of cement, plumbing valve, and sq. ft of marble is itemized before contract signing.</div>
+          </div>
+          <div class="pillar-item">
+            <div class="pillar-title">2. In-House Skilled Craftspeople</div>
+            <div class="pillar-desc">We never outsource critical electrical, waterproofing, or structural carpentry to unvetted day labor.</div>
+          </div>
+          <div class="pillar-item">
+            <div class="pillar-title">3. 10-Year Waterproofing & Structural Guarantee</div>
+            <div class="pillar-desc">Full aftercare checkups at 6 months, 12 months, and 24 months post-handover.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+      <div class="sec-tag">02 — Capabilities</div>
+      <h2 class="sec-title">End-to-end design & build services</h2>
+      <p class="sec-sub">Whether you are building on a vacant plot or completely stripping a 20-year-old apartment down to the concrete.</p>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div>
+            <div class="service-num">01 / ARCHITECTURE</div>
+            <h3>Custom Residential Builds</h3>
+            <p>Full architectural planning, spatial layouts, 3D renderings, and civil construction for independent villas, bungalows, and row houses.</p>
+          </div>
+          <ul class="service-list">
+            <li>Soil testing & structural design</li>
+            <li>Municipal approval management</li>
+            <li>Earthquake-resistant civil construction</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div>
+            <div class="service-num">02 / INTERIORS</div>
+            <h3>Turnkey Home Renovations</h3>
+            <p>Comprehensive interior overhauls for 2BHK to 5BHK apartments. Demolition, MEP redesign, modular kitchens, and bespoke lighting.</p>
+          </div>
+          <ul class="service-list">
+            <li>Full spatial replanning & acoustic walls</li>
+            <li>Custom Italian marble & oak flooring</li>
+            <li>Smart home automation integration</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div>
+            <div class="service-num">03 / COMMERCIAL</div>
+            <h3>Office & Retail Fitouts</h3>
+            <p>Fast-track corporate headquarters, doctor clinics, and boutique flagship retail spaces delivered on aggressive 45 to 60-day timelines.</p>
+          </div>
+          <ul class="service-list">
+            <li>HVAC & fire safety compliance</li>
+            <li>Ergonomic workstation fitouts</li>
+            <li>Turnkey handover with zero punch-list items</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <div class="sec-tag">03 — Portfolio</div>
+      <h2 class="sec-title">Selected recent projects</h2>
+      <p class="sec-sub">Take a look at how we combine natural lighting, high-durability materials, and clean modern proportions.</p>
+
+      <div class="projects-filter">
+        <button class="filter-btn active" onclick="filterProjects(this, 'all')">All Builds (12)</button>
+        <button class="filter-btn" onclick="filterProjects(this, 'residential')">Residential</button>
+        <button class="filter-btn" onclick="filterProjects(this, 'renovation')">Renovations</button>
+        <button class="filter-btn" onclick="filterProjects(this, 'commercial')">Commercial</button>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card" data-cat="residential">
+          <div class="project-img-box">
+            <span class="project-tag">Villa Build</span>
+            <h3 style="font-size:20px;">The Alibaug Courtyard House</h3>
+          </div>
+          <div class="project-card-body">
+            <h4>4,800 Sq. Ft · Ground-Up Construction</h4>
+            <p>A cantilevered concrete and exposed brick holiday home centered around an open courtyard with natural passive cooling ventilation.</p>
+            <div class="project-specs">
+              <span>Location: Alibaug, MH</span>
+              <span>Timeline: 11 Months</span>
+              <span>Turnkey Scope</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-cat="renovation">
+          <div class="project-img-box" style="background:linear-gradient(135deg, #3d2f24, #1b2a3a);">
+            <span class="project-tag">Apartment Overhaul</span>
+            <h3 style="font-size:20px;">Sea Mist Penthouse Rebuild</h3>
+          </div>
+          <div class="project-card-body">
+            <h4>2,600 Sq. Ft · Complete Interior Stripping</h4>
+            <p>Transformed a compartmentalized 1995 apartment into an open-plan light-filled sanctuary featuring brushed brass, travertine stone, and hidden storage.</p>
+            <div class="project-specs">
+              <span>Location: Bandra West</span>
+              <span>Timeline: 90 Days</span>
+              <span>Full Interior Fitout</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-cat="commercial">
+          <div class="project-img-box" style="background:linear-gradient(135deg, #1d3a33, #15222e);">
+            <span class="project-tag">Commercial Office</span>
+            <h3 style="font-size:20px;">Helix Ventures Studio HQ</h3>
+          </div>
+          <div class="project-card-body">
+            <h4>3,400 Sq. Ft · Fast-Track Fitout</h4>
+            <p>A modern venture capital office designed for quiet focus and collaborative sprints, with acoustic privacy pods and private terrace lounge.</p>
+            <div class="project-specs">
+              <span>Location: BKC, Mumbai</span>
+              <span>Timeline: 45 Days</span>
+              <span>Turnkey Commercial</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-cat="renovation">
+          <div class="project-img-box" style="background:linear-gradient(135deg, #3a1d26, #1b2a3a);">
+            <span class="project-tag">Luxury Duplex</span>
+            <h3 style="font-size:20px;">Worli Skyline Duplex</h3>
+          </div>
+          <div class="project-card-body">
+            <h4>3,800 Sq. Ft · Structural Re-engineering</h4>
+            <p>Cut a dramatic double-height ceiling atrium connecting two floors with a floating steel-and-oak helical staircase.</p>
+            <div class="project-specs">
+              <span>Location: Worli, Mumbai</span>
+              <span>Timeline: 5 Months</span>
+              <span>Structural + Interiors</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Cost Estimator -->
+    <section id="estimate">
+      <div class="sec-tag">04 — Transparency</div>
+      <h2 class="sec-title">Instant project cost estimator</h2>
+      <p class="sec-sub">Calculate an immediate realistic budget range based on current raw material and labor index rates.</p>
+
+      <div class="estimator-card">
+        <div class="estimator-grid">
+          <div>
+            <div class="est-form-group">
+              <label for="est-type">Project Scope</label>
+              <select id="est-type" class="est-select" onchange="calcEstimate()">
+                <option value="interior_premium">Complete Interior Renovation (Turnkey)</option>
+                <option value="civil_new">New Villa / Plot Construction (Civil + Core)</option>
+                <option value="full_luxury">Full Luxury Design & Build (Turnkey Villa)</option>
+                <option value="commercial">Commercial Office / Retail Fitout</option>
+              </select>
+            </div>
+
+            <div class="est-form-group">
+              <label>Built-Up Area (Sq. Ft)</label>
+              <div class="range-wrap">
+                <input type="range" id="est-sqft" min="800" max="6000" step="100" value="1800" oninput="calcEstimate()">
+                <div class="range-val" id="est-sqft-val">1,800 sq ft</div>
+              </div>
+            </div>
+
+            <div class="est-form-group">
+              <label for="est-finish">Specification & Finish Level</label>
+              <select id="est-finish" class="est-select" onchange="calcEstimate()">
+                <option value="1.0">Executive Contemporary (Vitrified, Teak Veneer, Kohler)</option>
+                <option value="1.35" selected>Premium Luxury (Italian Marble, Solid Oak, Grohe/Bottega)</option>
+                <option value="1.75">Bespoke Ultra-Luxe (Imported Travertine, Automation, Custom Millwork)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="estimate-output">
+            <div>
+              <div style="font-size: 13px; font-family: var(--font-mono); color: var(--ink-faint); text-transform: uppercase;">
+                Estimated Turnkey Budget
+              </div>
+              <div class="est-price-range" id="est-total">₹48.6L – ₹54.2L</div>
+              <div class="est-timeline" id="est-time">Estimated Duration: 90 – 110 Days</div>
+              <p style="font-size: 13px; color: var(--ink-light); line-height: 1.5;">
+                Includes architectural design, civil labor, plumbing, electrical, modular cabinetry, paint, and 10-year warranty.
+              </p>
+            </div>
+
+            <a href="#contact" class="btn-primary" style="text-align:center; margin-top:20px;">
+              Request Detailed BOQ Breakdown →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Consultation -->
+    <section id="contact">
+      <div class="sec-tag">05 — Get in Touch</div>
+      <h2 class="sec-title">Let's discuss your site or plot.</h2>
+      <p class="sec-sub">Schedule a 30-minute introductory site assessment with our principal architects.</p>
+
+      <div class="contact-grid">
+        <div class="contact-info-card">
+          <div class="contact-item">
+            <div class="contact-lbl">Design Studio</div>
+            <div class="contact-val">Level 4, One BKC, G Block, Bandra Kurla Complex, Mumbai 400051</div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-lbl">Direct Phone</div>
+            <div class="contact-val">+91 22 4980 3200</div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-lbl">Project Enquiries</div>
+            <div class="contact-val">projects@vanguardbuild.sample</div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-lbl">Consultation Hours</div>
+            <div class="contact-val">Monday – Saturday: 9:30 AM – 7:00 PM</div>
+          </div>
+        </div>
+
+        <form class="contact-form-card" onsubmit="handleInquiry(event)">
+          <div class="form-2col">
+            <div>
+              <label style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Your Name</label>
+              <input type="text" required class="est-input" placeholder="Rajesh Singhania">
+            </div>
+            <div>
+              <label style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Phone Number</label>
+              <input type="tel" required class="est-input" placeholder="+91 98200 XXXXX">
+            </div>
+          </div>
+
+          <div style="margin-bottom:16px;">
+            <label style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Property Location & Type</label>
+            <input type="text" class="est-input" placeholder="e.g. 3BHK in Lower Parel or Villa in Khandala">
+          </div>
+
+          <div style="margin-bottom:20px;">
+            <label style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Brief Description of Requirements</label>
+            <textarea rows="3" class="est-input" style="resize:vertical;" placeholder="Looking for full turnkey renovation starting next month..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width:100%;">Submit Consultation Request →</button>
+          <div id="form-success" style="display:none; color:var(--copper); font-weight:600; font-size:14px; margin-top:12px; text-align:center;">
+            ✓ Thank you! Our lead architect will reach out within 24 business hours.
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>This is a sample build by <a href="index.html">Built by Rahul</a> — illustrating a comprehensive, multi-section Small Business Site.</p>
+  </div>
+</footer>
+
+<script>
+function calcEstimate() {
+  const sqft = parseInt(document.getElementById('est-sqft').value);
+  document.getElementById('est-sqft-val').textContent = sqft.toLocaleString() + ' sq ft';
+  
+  const type = document.getElementById('est-type').value;
+  const finishMult = parseFloat(document.getElementById('est-finish').value);
+  
+  let baseRate = 2000;
+  let timeStr = '90 – 110 Days';
+  
+  if (type === 'interior_premium') {
+    baseRate = 2200;
+    timeStr = '75 – 100 Days';
+  } else if (type === 'civil_new') {
+    baseRate = 2600;
+    timeStr = '9 – 12 Months';
+  } else if (type === 'full_luxury') {
+    baseRate = 4200;
+    timeStr = '12 – 15 Months';
+  } else if (type === 'commercial') {
+    baseRate = 2800;
+    timeStr = '45 – 60 Days';
+  }
+  
+  const low = Math.round((sqft * baseRate * finishMult * 0.95) / 100000);
+  const high = Math.round((sqft * baseRate * finishMult * 1.1) / 100000);
+  
+  document.getElementById('est-total').textContent = `₹${(low / 10).toFixed(1)}L – ₹${(high / 10).toFixed(1)}L`;
+  document.getElementById('est-time').textContent = `Estimated Duration: ${timeStr}`;
+}
+
+function filterProjects(btn, cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  
+  document.querySelectorAll('.project-card').forEach(card => {
+    if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+function handleInquiry(e) {
+  e.preventDefault();
+  document.getElementById('form-success').style.display = 'block';
+}
+
+calcEstimate();
+</script>
+
+</body>
+</html>

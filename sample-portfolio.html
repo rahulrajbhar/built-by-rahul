@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devon Vance — Sample Portfolio Site by Built by Rahul</title>
+<meta name="description" content="Sample Portfolio Site build for consultants, freelancers, and executive advisors who need to look as good as their work.">
+<style>
+:root {
+  --bg: #0f1115;
+  --card: #161920;
+  --card-hover: #1c202a;
+  --ink: #f0f2f5;
+  --ink-light: #9ea5b3;
+  --ink-faint: #626875;
+  --border: #232833;
+  --accent: #4f8cff;
+  --accent-light: rgba(79, 140, 255, 0.12);
+  --green: #22c55e;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Sample Bar */
+.sample-bar {
+  background: #000;
+  border-bottom: 1px solid var(--border);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-family: var(--font-mono);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  gap: 12px;
+}
+.sample-bar a { color: var(--accent); text-decoration: none; font-weight: 600; white-space: nowrap; }
+.sample-bar a:hover { text-decoration: underline; }
+.sample-badge { background: var(--accent); color: #000; padding: 2px 7px; border-radius: 3px; font-weight: 700; font-size: 11px; margin-right: 8px; display: inline-block; }
+
+/* Header & Nav */
+header {
+  background: rgba(15, 17, 21, 0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 90;
+}
+.nav-wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.brand {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 10px var(--green);
+  flex-shrink: 0;
+}
+.nav-links { display: flex; gap: 20px; align-items: center; }
+.nav-links a { color: var(--ink-light); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .2s; white-space: nowrap; }
+.nav-links a:hover { color: var(--ink); }
+.btn-talk {
+  background: #fff;
+  color: #000;
+  padding: 9px 18px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all .2s;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-talk:hover { background: #e0e0e0; transform: translateY(-1px); }
+
+/* Layout */
+.container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+section { padding: 80px 0; border-bottom: 1px solid var(--border); }
+
+/* Mobile Adaptations */
+@media (max-width: 768px) {
+  .sample-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+  .sample-bar > div:last-child {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 6px;
+  }
+  .nav-wrap {
+    padding: 12px 16px;
+  }
+  .nav-links {
+    display: none;
+  }
+  .container {
+    padding: 0 16px;
+  }
+  section {
+    padding: 48px 0;
+  }
+}
+
+/* Hero */
+.hero { padding: 80px 0 60px; }
+@media (max-width: 768px) {
+  .hero {
+    padding: 48px 0 36px;
+  }
+}
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 5px 12px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(79, 140, 255, 0.2);
+}
+.hero h1 {
+  font-size: clamp(30px, 4.8vw, 54px);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  max-width: 860px;
+  margin-bottom: 20px;
+}
+.hero h1 span { color: var(--ink-light); }
+.hero-bio {
+  font-size: 16.5px;
+  color: var(--ink-light);
+  line-height: 1.6;
+  max-width: 640px;
+  margin-bottom: 30px;
+}
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
+@media (max-width: 640px) {
+  .hero-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero-actions a {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  padding: 13px 28px;
+  border-radius: 100px;
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background .2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-primary:hover { background: #3b76e1; }
+.btn-secondary {
+  background: var(--card);
+  color: var(--ink);
+  padding: 13px 26px;
+  border-radius: 100px;
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  transition: all .2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-secondary:hover { border-color: var(--ink-light); }
+
+/* Proof bar */
+.proof-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 28px;
+}
+@media (max-width: 768px) { 
+  .proof-strip { 
+    grid-template-columns: 1fr 1fr; 
+    gap: 16px;
+    padding: 20px;
+  } 
+}
+@media (max-width: 480px) {
+  .proof-strip {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .proof-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+  }
+  .proof-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+.proof-item { border-right: 1px solid var(--border); padding-right: 16px; }
+.proof-item:last-child { border-right: none; }
+.proof-num { font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+.proof-lbl { font-size: 12.5px; color: var(--ink-faint); }
+
+/* Section headings */
+.sec-eyebrow { font-family: var(--font-mono); font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
+.sec-title { font-size: clamp(24px, 3.8vw, 36px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; line-height: 1.2; }
+.sec-desc { color: var(--ink-light); font-size: 15.5px; max-width: 580px; }
+
+/* Case Studies */
+.cases-grid { display: flex; flex-direction: column; gap: 24px; margin-top: 36px; }
+.case-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  transition: all .2s;
+}
+@media (max-width: 640px) {
+  .case-card {
+    padding: 22px 18px;
+  }
+}
+.case-card:hover { border-color: #3b4252; background: var(--card-hover); }
+.case-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 10px; }
+.case-tag { font-family: var(--font-mono); font-size: 11px; background: rgba(255,255,255,0.06); padding: 4px 10px; border-radius: 100px; color: var(--accent); }
+.case-metrics { display: flex; gap: 16px; flex-wrap: wrap; }
+.metric-pill { font-size: 13.5px; font-weight: 700; color: var(--green); }
+
+.case-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; line-height: 1.3; }
+.case-card p { font-size: 14.5px; color: var(--ink-light); line-height: 1.6; margin-bottom: 20px; }
+.case-breakdown {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 10px;
+  padding: 16px 18px;
+  font-size: 13.5px;
+}
+@media (max-width: 600px) { .case-breakdown { grid-template-columns: 1fr; gap: 12px; } }
+.breakdown-col strong { display: block; color: var(--ink); margin-bottom: 4px; }
+.breakdown-col span { color: var(--ink-light); }
+
+/* Engagement Models / Offerings */
+.offers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 36px; }
+@media (max-width: 860px) { .offers-grid { grid-template-columns: 1fr; gap: 20px; } }
+.offer-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.offer-card.featured {
+  border-color: var(--accent);
+  background: linear-gradient(180deg, rgba(79,140,255,0.08) 0%, var(--card) 100%);
+}
+.offer-name { font-size: 19px; font-weight: 700; margin-bottom: 6px; }
+.offer-time { font-family: var(--font-mono); font-size: 12px; color: var(--accent); margin-bottom: 14px; }
+.offer-desc { font-size: 14px; color: var(--ink-light); line-height: 1.55; margin-bottom: 24px; }
+.offer-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 30px; font-size: 13.5px; color: var(--ink-light); }
+.offer-bullets li { display: flex; gap: 8px; }
+.offer-bullets li::before { content: "✦"; color: var(--accent); font-size: 11px; }
+
+/* Testimonials */
+.quotes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 36px; }
+@media (max-width: 768px) { .quotes-grid { grid-template-columns: 1fr; gap: 16px; } }
+.quote-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 26px 22px;
+}
+.quote-body { font-size: 14.5px; color: var(--ink-light); font-style: italic; line-height: 1.6; margin-bottom: 18px; }
+.quote-by { display: flex; align-items: center; gap: 12px; }
+.by-avatar { width: 38px; height: 38px; border-radius: 50%; background: #232833; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; color: #fff; flex-shrink: 0; }
+.by-name { font-weight: 700; font-size: 14px; }
+.by-role { font-size: 12px; color: var(--ink-faint); }
+
+/* Booking / Contact */
+.book-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 40px 32px;
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+@media (max-width: 800px) { 
+  .book-card { 
+    grid-template-columns: 1fr; 
+    padding: 24px 18px;
+    border-radius: 14px;
+    gap: 24px;
+  } 
+}
+
+.portfolio-input {
+  width: 100%;
+  padding: 12px 14px;
+  background: #0f1115;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px; /* iOS Safari 16px zoom prevention */
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.portfolio-input:focus {
+  border-color: var(--accent);
+}
+
+/* Footer */
+footer { padding: 40px 0; text-align: center; font-size: 13px; color: var(--ink-faint); }
+footer a { color: var(--ink); text-decoration: none; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="sample-bar">
+  <div>
+    <span class="sample-badge">SAMPLE 03 — PORTFOLIO SITE</span>
+    <span>Crafted for consultants, creators, and advisors to showcase credentials, case studies, and advisory sprints.</span>
+  </div>
+  <div>
+    <a href="index.html#sample">← Back to Built by Rahul</a>
+  </div>
+</div>
+
+<header>
+  <div class="nav-wrap">
+    <a href="#hero" class="brand">
+      <span class="status-dot"></span>
+      Devon Vance
+    </a>
+    <nav class="nav-links">
+      <a href="#work">Selected Work</a>
+      <a href="#engagement">Engagements</a>
+      <a href="#principles">Methodology</a>
+      <a href="#words">Endorsements</a>
+    </nav>
+    <a href="#contact" class="btn-talk">Book 20-Min Intro</a>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <!-- Hero -->
+    <section id="hero" class="hero">
+      <div class="hero-tag">Fractional CPO & B2B Product Strategist</div>
+      <h1>I help venture-backed SaaS teams turn chaotic roadmaps into <span>high-velocity growth engines.</span></h1>
+      <p class="hero-bio">14 years shipping software. Former VP Product @ ScaleOps ($0 to $24M ARR). I work directly with founders to fix user activation, kill zombie features, and align pricing with customer value.</p>
+      <div class="hero-actions">
+        <a href="#work" class="btn-primary">View Case Studies ↓</a>
+        <a href="#engagement" class="btn-secondary">Advisory Offerings</a>
+      </div>
+
+      <div class="proof-strip">
+        <div class="proof-item">
+          <div class="proof-num">$140M+</div>
+          <div class="proof-lbl">Client enterprise value built</div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-num">24 Startups</div>
+          <div class="proof-lbl">Advised from Seed to Series C</div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-num">+42%</div>
+          <div class="proof-lbl">Average Day-30 retention lift</div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-num">3 Exits</div>
+          <div class="proof-lbl">Portfolio company acquisitions</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section id="work">
+      <div class="sec-eyebrow">01 — Selected Outcomes</div>
+      <h2 class="sec-title">Case studies with verifiable numbers.</h2>
+      <p class="sec-desc">A selection of recent 3 to 6-month product leadership and activation sprints.</p>
+
+      <div class="cases-grid">
+        <div class="case-card">
+          <div class="case-header">
+            <span class="case-tag">Fintech SaaS · Series B</span>
+            <div class="case-metrics">
+              <span class="metric-pill">+42% 30-Day Retention</span>
+              <span class="metric-pill" style="color:var(--accent);">$4.2M Net ARR</span>
+            </div>
+          </div>
+          <h3>Rebuilding the Core Onboarding & Activation Funnel for LedgerFlow</h3>
+          <p>LedgerFlow's enterprise accounting software had massive sales interest, but 64% of new finance teams dropped off before connecting their first bank feed. We audited the entire UX flow, removed 11 unnecessary form steps, and introduced self-serve automated CSV reconciliations.</p>
+          <div class="case-breakdown">
+            <div class="breakdown-col">
+              <strong>The Core Bottleneck:</strong>
+              <span>Time-to-first-value was 14 days due to manual IT permission gates.</span>
+            </div>
+            <div class="breakdown-col">
+              <strong>Strategic Intervention:</strong>
+              <span>Created a zero-install read-only sandbox preview that demonstrated immediate ROI in 90 seconds.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-header">
+            <span class="case-tag">Developer Infrastructure · Series A</span>
+            <div class="case-metrics">
+              <span class="metric-pill">4.1x Signups</span>
+              <span class="metric-pill" style="color:var(--accent);">Acquired by Tier-1 Cloud</span>
+            </div>
+          </div>
+          <h3>Simplifying Enterprise AI Workflows for Synthetix</h3>
+          <p>Synthetix built powerful autonomous agent orchestration, but the product was bogged down in complex JSON configurations that only senior ML researchers understood. Redesigned the product surface into a visual declarative canvas that allowed standard DevOps engineers to deploy within an afternoon.</p>
+          <div class="case-breakdown">
+            <div class="breakdown-col">
+              <strong>The Core Bottleneck:</strong>
+              <span>Product required 3 engineer onboarding calls before a proof of concept could launch.</span>
+            </div>
+            <div class="breakdown-col">
+              <strong>Strategic Intervention:</strong>
+              <span>Built 8 one-click production agent templates and a live in-browser debugger.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-header">
+            <span class="case-tag">Digital Health · Bootstrapped to $6M ARR</span>
+            <div class="case-metrics">
+              <span class="metric-pill">-35 Min Charting/Day</span>
+              <span class="metric-pill" style="color:var(--accent);">99.2% Renewals</span>
+            </div>
+          </div>
+          <h3>Modern Clinical Workflow Suite for Orthopedic Practices</h3>
+          <p>Partnered with clinical founders to replace clunky 1990s EHR software with a lightning-fast keyboard-first clinical notes engine tailored specifically for joint replacement surgeons.</p>
+          <div class="case-breakdown">
+            <div class="breakdown-col">
+              <strong>The Core Bottleneck:</strong>
+              <span>Surgeons spent 2+ hours every evening finishing paperwork due to slow dropdown menus.</span>
+            </div>
+            <div class="breakdown-col">
+              <strong>Strategic Intervention:</strong>
+              <span>Implemented Command-K fast actions and context-aware structured dictation macros.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Engagement Models -->
+    <section id="engagement">
+      <div class="sec-eyebrow">02 — How We Work Together</div>
+      <h2 class="sec-title">Three high-impact advisory formats.</h2>
+      <p class="sec-desc">Designed to give you senior product horsepower without the overhead or delay of a full-time executive hire.</p>
+
+      <div class="offers-grid">
+        <div class="offer-card">
+          <div>
+            <div class="offer-name">Strategy Intensive</div>
+            <div class="offer-time">1-Day Deep Dive Sprint</div>
+            <p class="offer-desc">A full-day working session with founder and leadership to unblock product roadmap gridlock, evaluate pricing, or prep for board meetings.</p>
+          </div>
+          <ul class="offer-bullets">
+            <li>Pre-sprint telemetry and funnel data audit</li>
+            <li>6-hour private executive workshop</li>
+            <li>Written 90-day execution blueprint</li>
+            <li>2 follow-up accountability checkpoints</li>
+          </ul>
+          <a href="#contact" class="btn-secondary" style="text-align:center;">Request Intensive</a>
+        </div>
+
+        <div class="offer-card featured">
+          <div>
+            <div class="offer-name">Product & Growth Audit</div>
+            <div class="offer-time">4-Week Targeted Sprint</div>
+            <p class="offer-desc">A surgical teardown of your customer journey, onboarding funnel, and retention churn loops with ready-to-build Figma specifications.</p>
+          </div>
+          <ul class="offer-bullets">
+            <li>12+ live user and churn interviews</li>
+            <li>Full product telemetry & event audit</li>
+            <li>High-fidelity UX wireframes for core bottlenecks</li>
+            <li>Direct engineering backlog grooming</li>
+          </ul>
+          <a href="#contact" class="btn-primary" style="text-align:center;">Book 4-Week Sprint</a>
+        </div>
+
+        <div class="offer-card">
+          <div>
+            <div class="offer-name">Fractional CPO</div>
+            <div class="offer-time">3 to 6-Month Retainer</div>
+            <p class="offer-desc">Dedicated product leadership (15-20 hrs/week) embedded directly in your team to run sprints, hire PMs, and own delivery.</p>
+          </div>
+          <ul class="offer-bullets">
+            <li>Lead weekly sprint planning & grooming</li>
+            <li>Mentor junior PMs and designers</li>
+            <li>Participate in executive and board reviews</li>
+            <li>Manage hiring for permanent VP Product</li>
+          </ul>
+          <a href="#contact" class="btn-secondary" style="text-align:center;">Inquire Availability</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="words">
+      <div class="sec-eyebrow">03 — Endorsements</div>
+      <h2 class="sec-title">What founders say</h2>
+
+      <div class="quotes-grid">
+        <div class="quote-card">
+          <p class="quote-body">"Devon came into our Series A startup when our product was a confusing tangle of feature requests. Within 3 weeks, he gave our engineering team crystal clarity and helped us lift our trial-to-paid conversion by 38%."</p>
+          <div class="quote-by">
+            <div class="by-avatar">SC</div>
+            <div>
+              <div class="by-name">Siddharth Chopra</div>
+              <div class="by-role">CEO & Co-founder @ FlowTrace</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quote-card">
+          <p class="quote-body">"Unlike most consultants who just deliver slides and disappear, Devon worked alongside our engineers in Linear and Figma. The speed and quality of his work is unmatched."</p>
+          <div class="quote-by">
+            <div class="by-avatar">ML</div>
+            <div>
+              <div class="by-name">Maya Lin</div>
+              <div class="by-role">CTO @ PulseMetrics</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Drawer -->
+    <section id="contact">
+      <div class="book-card">
+        <div>
+          <div class="sec-eyebrow">Direct Contact</div>
+          <h2 style="font-size:32px; font-weight:700; margin-bottom:12px;">Let's talk about your roadmap.</h2>
+          <p style="color:var(--ink-light); font-size:16px; margin-bottom:24px;">
+            Currently accepting 1 new advisory engagement for next quarter. Share a few lines about your product, and I will reply within 24 hours.
+          </p>
+          <div style="font-size:13.5px; color:var(--ink-faint); font-family:var(--font-mono);">
+            devon@vancestrategy.sample · Mumbai / Remote Worldwide
+          </div>
+        </div>
+
+        <form style="display:flex; flex-direction:column; gap:14px;" onsubmit="handleContact(event)">
+          <input type="text" placeholder="Your Name & Company" required class="portfolio-input">
+          <input type="email" placeholder="Work Email" required class="portfolio-input">
+          <select class="portfolio-input">
+            <option>4-Week Product Audit Sprint</option>
+            <option>1-Day Strategy Intensive</option>
+            <option>Fractional CPO Retainer</option>
+          </select>
+          <textarea rows="3" placeholder="Current bottleneck or upcoming milestone..." class="portfolio-input" style="resize:vertical;"></textarea>
+          <button type="submit" class="btn-primary" style="width:100%; border:none; cursor:pointer; padding:14px;">Send Message →</button>
+          <div id="contact-ok" style="display:none; color:var(--green); font-size:13px; font-weight:600; text-align:center;">
+            ✓ Message received. I will review your notes and reach out shortly!
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>This is a sample build by <a href="index.html">Built by Rahul</a> — illustrating a high-end Portfolio Site for consultants & creators.</p>
+  </div>
+</footer>
+
+<script>
+function handleContact(e) {
+  e.preventDefault();
+  document.getElementById('contact-ok').style.display = 'block';
+}
+</script>
+
+</body>
+</html>

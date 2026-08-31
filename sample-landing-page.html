@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aura Wellness Studio — Sample Landing Page by Built by Rahul</title>
+<meta name="description" content="Sample Landing Page build for a boutique wellness & contrast therapy studio. One clean page that tells visitors who you are and what to do next.">
+<style>
+:root {
+  --bg: #faf9f6;
+  --card: #ffffff;
+  --ink: #18191a;
+  --ink-light: #525458;
+  --ink-faint: #8a8d93;
+  --border: #e8e6e1;
+  --accent: #2e6b52;
+  --accent-light: #eef5f1;
+  --accent-hover: #245541;
+  --warm: #d97736;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Sample Banner */
+.sample-bar {
+  background: var(--ink);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-family: var(--font-mono);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  gap: 12px;
+}
+.sample-bar a { color: #a3e6be; text-decoration: none; font-weight: 600; white-space: nowrap; }
+.sample-bar a:hover { text-decoration: underline; }
+.sample-badge { background: #333; color: #eee; padding: 3px 8px; border-radius: 4px; font-size: 11px; display: inline-block; }
+
+/* Navigation */
+header {
+  background: rgba(250, 249, 246, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 90;
+}
+.nav-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.brand {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.brand-icon {
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.nav-links { display: flex; gap: 20px; align-items: center; }
+.nav-links a { color: var(--ink-light); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .2s; white-space: nowrap; }
+.nav-links a:hover { color: var(--accent); }
+.btn-book {
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all .2s;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+.btn-book:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+/* Main layout */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+section { padding: 70px 0; border-bottom: 1px solid var(--border); }
+
+/* Mobile Adaptations */
+@media (max-width: 768px) {
+  .sample-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+  .sample-bar > div:last-child {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #2a2a2a;
+    padding-top: 6px;
+  }
+  .nav-wrap {
+    padding: 12px 16px;
+  }
+  .nav-links {
+    display: none;
+  }
+  .btn-book {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  .container {
+    padding: 0 16px;
+  }
+  section {
+    padding: 48px 0;
+  }
+}
+
+/* Hero */
+.hero { padding: 90px 0 70px; text-align: center; }
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+  letter-spacing: .02em;
+}
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(38px, 6vw, 62px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  max-width: 820px;
+  margin: 0 auto 20px;
+}
+.hero p {
+  font-size: clamp(17px, 2.2vw, 20px);
+  color: var(--ink-light);
+  max-width: 620px;
+  margin: 0 auto 36px;
+}
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+@media (max-width: 640px) {
+  .hero-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero-actions a {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+}
+.btn-secondary {
+  background: var(--card);
+  color: var(--ink);
+  padding: 12px 24px;
+  border-radius: 100px;
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1.5px solid var(--border);
+  transition: all .2s;
+  display: inline-block;
+}
+.btn-secondary:hover { border-color: var(--ink); }
+.hero-trust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 13.5px;
+  color: var(--ink-faint);
+  flex-wrap: wrap;
+}
+.stars { color: #f59e0b; }
+
+/* Visual Bar / Feature highlight */
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 30px;
+  margin-top: 50px;
+}
+@media (max-width: 700px) { 
+  .hero-stats { 
+    grid-template-columns: 1fr; 
+    padding: 20px;
+    gap: 16px;
+  } 
+  .stat-item {
+    border-bottom: 1px solid #f0eee9;
+    padding-bottom: 14px;
+  }
+  .stat-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+.stat-item { text-align: left; }
+.stat-val { font-family: var(--font-serif); font-size: 28px; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+.stat-lbl { font-size: 13.5px; color: var(--ink-light); }
+
+/* Benefits Grid */
+.sec-head { text-align: center; margin-bottom: 40px; }
+.sec-eyebrow { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin-bottom: 10px; }
+.sec-title { font-family: var(--font-serif); font-size: clamp(26px, 4vw, 40px); font-weight: 700; line-height: 1.2; }
+.sec-sub { color: var(--ink-light); font-size: 15.5px; max-width: 540px; margin: 10px auto 0; }
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 800px) { .benefits-grid { grid-template-columns: 1fr; gap: 16px; } }
+.benefit-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 22px;
+  transition: transform .2s, box-shadow .2s;
+}
+.benefit-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.04); }
+.benefit-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--accent-light);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+.benefit-card h3 { font-size: 19px; font-weight: 700; margin-bottom: 10px; }
+.benefit-card p { font-size: 14.5px; color: var(--ink-light); line-height: 1.55; }
+
+/* Pricing Passes */
+.passes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 860px) { .passes-grid { grid-template-columns: 1fr; gap: 20px; } }
+.pass-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.pass-card.featured {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent), 0 12px 30px rgba(46, 107, 82, 0.08);
+}
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 100px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.pass-name { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+.pass-desc { font-size: 13.5px; color: var(--ink-light); margin-bottom: 20px; min-height: 40px; }
+.pass-price { font-family: var(--font-serif); font-size: 36px; font-weight: 700; margin-bottom: 4px; }
+.pass-price span { font-family: var(--font-sans); font-size: 14px; font-weight: 400; color: var(--ink-faint); }
+.pass-features { list-style: none; margin: 20px 0 28px; display: flex; flex-direction: column; gap: 12px; flex-grow: 1; }
+.pass-features li { font-size: 14px; color: var(--ink-light); display: flex; align-items: center; gap: 10px; }
+.pass-features li::before { content: "✓"; color: var(--accent); font-weight: 700; }
+
+/* Interactive Booking Drawer / Widget */
+.booking-section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 40px 32px;
+  margin-top: 30px;
+}
+@media (max-width: 768px) {
+  .booking-section {
+    padding: 24px 18px;
+    border-radius: 14px;
+  }
+}
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 36px;
+}
+@media (max-width: 800px) { .booking-grid { grid-template-columns: 1fr; gap: 24px; } }
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; font-size: 13.5px; font-weight: 600; margin-bottom: 6px; }
+.form-control {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 16px; /* iOS Safari 16px zoom prevention */
+  font-family: inherit;
+  background: #faf9f6;
+  outline: none;
+}
+.form-control:focus { border-color: var(--accent); background: #fff; }
+.time-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+.time-chip {
+  padding: 9px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13.5px;
+  cursor: pointer;
+  background: #fff;
+  transition: all .15s;
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
+}
+.time-chip.active, .time-chip:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.booking-summary {
+  background: var(--accent-light);
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.summary-line { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 14px; }
+.summary-total { border-top: 1px solid rgba(46,107,82,0.2); padding-top: 14px; font-weight: 700; font-size: 18px; color: var(--accent); }
+
+/* Reviews */
+.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+@media (max-width: 800px) { .reviews-grid { grid-template-columns: 1fr; } }
+.review-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px;
+}
+.review-text { font-size: 14.5px; color: var(--ink-light); margin-bottom: 18px; font-style: italic; }
+.review-author { display: flex; align-items: center; gap: 12px; }
+.author-avatar { width: 36px; height: 36px; border-radius: 50%; background: #e2dfd7; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; color: var(--ink-light); }
+.author-name { font-weight: 600; font-size: 14px; }
+.author-meta { font-size: 12px; color: var(--ink-faint); }
+
+/* Location & Hours */
+.location-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+@media (max-width: 768px) { .location-wrap { grid-template-columns: 1fr; } }
+.info-box { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 32px; }
+.info-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f0eee9; font-size: 14.5px; }
+.info-row:last-child { border-bottom: none; }
+.map-mockup {
+  height: 280px;
+  background: #e5e3db;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-light);
+  gap: 8px;
+}
+
+/* Footer */
+footer { padding: 40px 0; text-align: center; font-size: 13.5px; color: var(--ink-faint); }
+footer a { color: var(--ink); text-decoration: none; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="sample-bar">
+  <div>
+    <span class="sample-badge">SAMPLE 01 — LANDING PAGE</span>
+    <span>One clean page built to tell visitors who you are and convert interest into bookings.</span>
+  </div>
+  <div>
+    <a href="index.html#sample">← Back to Built by Rahul</a>
+  </div>
+</div>
+
+<header>
+  <div class="nav-wrap">
+    <a href="#hero" class="brand"><span class="brand-icon"></span>Aura Studio</a>
+    <nav class="nav-links">
+      <a href="#benefits">The Experience</a>
+      <a href="#pricing">Passes</a>
+      <a href="#booking">Book</a>
+      <a href="#location">Studio Info</a>
+    </nav>
+    <a href="#booking" class="btn-book">Book Intro Session</a>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <!-- Hero -->
+    <section id="hero" class="hero">
+      <div class="hero-tag">✨ Infrared Sauna & Cold Plunge Suite</div>
+      <h1>Contrast therapy designed for deep recovery.</h1>
+      <p>Private sauna suites, filtered 4°C cold plunge tubs, and zero distractions. Step in exhausted, walk out revitalized in 45 minutes.</p>
+      <div class="hero-actions">
+        <a href="#booking" class="btn-book" style="padding:14px 32px; font-size:16px;">Book First Session (₹799) →</a>
+        <a href="#benefits" class="btn-secondary">Explore the Studio</a>
+      </div>
+      <div class="hero-trust">
+        <span class="stars">★★★★★</span>
+        <span>Rated 4.9/5 from 480+ local athletes, founders & members</span>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-val">45 Min</div>
+          <div class="stat-lbl">Full private contrast recovery protocol</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val">100% Private</div>
+          <div class="stat-lbl">Dedicated suite with private shower & amenities</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val">4°C to 80°C</div>
+          <div class="stat-lbl">Medical-grade cedar sauna and chilled immersion</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <section id="benefits">
+      <div class="sec-head">
+        <div class="sec-eyebrow">Why Contrast Therapy</div>
+        <h2 class="sec-title">What happens in 45 minutes</h2>
+        <p class="sec-sub">Clinically studied hot-cold immersion to calm inflammation, accelerate muscle repair, and elevate mood.</p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">🔥</div>
+          <h3>Full-Spectrum Infrared Heat</h3>
+          <p>Heats your core temperature directly at 75°C to induce deep cellular detox, relieve tension, and lower resting heart rate.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">❄️</div>
+          <h3>Purified 4°C Cold Immersion</h3>
+          <p>Micro-filtered, continuous-chill plunge that spikes dopamine release by 250% and dramatically cuts muscle soreness.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🌿</div>
+          <h3>Sanctuary Grade Privacy</h3>
+          <p>Every session takes place in an individual suite with Bluetooth audio, Dyson hair care, organic towels, and herbal teas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing / Passes -->
+    <section id="pricing">
+      <div class="sec-head">
+        <div class="sec-eyebrow">Simple Pricing</div>
+        <h2 class="sec-title">Flexible passes for every routine</h2>
+        <p class="sec-sub">No membership required. Drop in when you need a reset or save with session packs.</p>
+      </div>
+
+      <div class="passes-grid">
+        <div class="pass-card">
+          <div class="pass-name">Single Session</div>
+          <div class="pass-desc">Perfect for weekend recovery or first-time drop ins.</div>
+          <div class="pass-price">₹1,199 <span>/ session</span></div>
+          <ul class="pass-features">
+            <li>45-min private suite access</li>
+            <li>Infrared sauna + cold plunge</li>
+            <li>Towel service & amenities</li>
+            <li>Electrolyte hydration bar</li>
+          </ul>
+          <a href="#booking" class="btn-secondary" style="text-align:center;">Book Single</a>
+        </div>
+
+        <div class="pass-card featured">
+          <div class="popular-badge">Intro Offer</div>
+          <div class="pass-name">First-Timer 3-Pack</div>
+          <div class="pass-desc">Experience the compound benefit over your first week.</div>
+          <div class="pass-price">₹2,299 <span>(₹766 / session)</span></div>
+          <ul class="pass-features">
+            <li>3 x 45-min private sessions</li>
+            <li>Bring a guest for free once</li>
+            <li>Valid for 45 days</li>
+            <li>Complimentary recovery drink</li>
+          </ul>
+          <a href="#booking" class="btn-book" style="text-align:center;">Get 3-Pack Deal</a>
+        </div>
+
+        <div class="pass-card">
+          <div class="pass-name">Monthly 8-Pack</div>
+          <div class="pass-desc">For serious athletes, lifters, and busy professionals.</div>
+          <div class="pass-price">₹5,499 <span>/ month</span></div>
+          <ul class="pass-features">
+            <li>8 sessions per month</li>
+            <li>Priority booking slots</li>
+            <li>Roll over unused sessions</li>
+            <li>15% off studio retail & electrolytes</li>
+          </ul>
+          <a href="#booking" class="btn-secondary" style="text-align:center;">Select 8-Pack</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Instant Booking Widget -->
+    <section id="booking">
+      <div class="sec-head">
+        <div class="sec-eyebrow">Instant Reservation</div>
+        <h2 class="sec-title">Reserve your private suite</h2>
+        <p class="sec-sub">Pick your session type, choose a time, and confirm in 30 seconds.</p>
+      </div>
+
+      <div class="booking-section">
+        <div class="booking-grid">
+          <div>
+            <div class="form-group">
+              <label for="book-service">Select Experience</label>
+              <select id="book-service" class="form-control" onchange="updateBooking()">
+                <option value="intro" data-price="799">First Timer Intro Special — ₹799</option>
+                <option value="single" data-price="1199">Standard Contrast Session (45 min) — ₹1,199</option>
+                <option value="pack3" data-price="2299">3-Session Starter Pack — ₹2,299</option>
+                <option value="duo" data-price="1899">Duo Suite (Bring a Friend) — ₹1,899</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="book-date">Preferred Date</label>
+              <input type="date" id="book-date" class="form-control" value="2026-09-01">
+            </div>
+
+            <div class="form-group">
+              <label>Select Time Slot</label>
+              <div class="time-chips">
+                <div class="time-chip" onclick="selectTime(this, '08:00 AM')">08:00 AM</div>
+                <div class="time-chip active" onclick="selectTime(this, '10:30 AM')">10:30 AM</div>
+                <div class="time-chip" onclick="selectTime(this, '01:00 PM')">01:00 PM</div>
+                <div class="time-chip" onclick="selectTime(this, '04:30 PM')">04:30 PM</div>
+                <div class="time-chip" onclick="selectTime(this, '07:00 PM')">07:00 PM</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="book-name">Your Full Name</label>
+              <input type="text" id="book-name" class="form-control" placeholder="Jane Doe">
+            </div>
+
+            <div class="form-group">
+              <label for="book-phone">Phone / WhatsApp</label>
+              <input type="tel" id="book-phone" class="form-control" placeholder="+91 98765 43210">
+            </div>
+          </div>
+
+          <div class="booking-summary">
+            <div>
+              <h3 style="font-size: 18px; margin-bottom: 16px; color: var(--accent);">Reservation Summary</h3>
+              <div class="summary-line">
+                <span style="color:var(--ink-light);">Experience:</span>
+                <strong id="sum-svc">First Timer Intro Special</strong>
+              </div>
+              <div class="summary-line">
+                <span style="color:var(--ink-light);">Date:</span>
+                <strong id="sum-date">Sep 1, 2026</strong>
+              </div>
+              <div class="summary-line">
+                <span style="color:var(--ink-light);">Time Slot:</span>
+                <strong id="sum-time">10:30 AM</strong>
+              </div>
+              <div class="summary-line">
+                <span style="color:var(--ink-light);">Suite Type:</span>
+                <strong>Private Cedar Suite #2</strong>
+              </div>
+            </div>
+
+            <div>
+              <div class="summary-line summary-total">
+                <span>Total Due:</span>
+                <span id="sum-price">₹799</span>
+              </div>
+              <button type="button" class="btn-book" style="width:100%; margin-top: 16px; padding: 14px;" onclick="handleConfirmBooking()">
+                Confirm & Reserve Suite →
+              </button>
+              <div id="booking-msg" style="display:none; margin-top:12px; font-size:13px; color:var(--accent); font-weight:600; text-align:center;">
+                ✓ Booking confirmed! WhatsApp confirmation details generated.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section>
+      <div class="sec-head">
+        <div class="sec-eyebrow">Testimonials</div>
+        <h2 class="sec-title">Loved by over 450+ members</h2>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="stars" style="margin-bottom:10px;">★★★★★</div>
+          <p class="review-text">"As a marathon runner, contrast therapy cut my recovery from heavy long runs in half. Having a totally private suite is a game-changer."</p>
+          <div class="review-author">
+            <div class="author-avatar">AK</div>
+            <div>
+              <div class="author-name">Anand Kapoor</div>
+              <div class="author-meta">Marathoner & Founder</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars" style="margin-bottom:10px;">★★★★★</div>
+          <p class="review-text">"Cleanest wellness space in the city. The cold plunge temperature stays razor sharp at 4°C and the organic towels smell incredible."</p>
+          <div class="review-author">
+            <div class="author-avatar">PS</div>
+            <div>
+              <div class="author-name">Pooja Sharma</div>
+              <div class="author-meta">Creative Director</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars" style="margin-bottom:10px;">★★★★★</div>
+          <p class="review-text">"The website was so clean and fast that I booked my pass within 30 seconds on my phone. The studio experience was even better."</p>
+          <div class="review-author">
+            <div class="author-avatar">RM</div>
+            <div>
+              <div class="author-name">Rohan Mehta</div>
+              <div class="author-meta">Weekly Pass Holder</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location & Studio Info -->
+    <section id="location">
+      <div class="sec-head">
+        <div class="sec-eyebrow">Find Us</div>
+        <h2 class="sec-title">Studio location & hours</h2>
+      </div>
+
+      <div class="location-wrap">
+        <div class="info-box">
+          <div class="info-row">
+            <span style="color:var(--ink-light);">Address</span>
+            <strong>42 Linking Road, Bandra West, Mumbai</strong>
+          </div>
+          <div class="info-row">
+            <span style="color:var(--ink-light);">Mon – Fri</span>
+            <strong>6:30 AM – 9:00 PM</strong>
+          </div>
+          <div class="info-row">
+            <span style="color:var(--ink-light);">Sat – Sun</span>
+            <strong>7:00 AM – 8:30 PM</strong>
+          </div>
+          <div class="info-row">
+            <span style="color:var(--ink-light);">Parking</span>
+            <strong>Valet available on premises</strong>
+          </div>
+          <div class="info-row">
+            <span style="color:var(--ink-light);">Contact</span>
+            <strong>hello@aurawellness.sample</strong>
+          </div>
+        </div>
+
+        <div class="map-mockup">
+          <div style="font-size: 28px;">📍</div>
+          <strong>Aura Contrast Therapy Studio</strong>
+          <span style="font-size:13px; color:var(--ink-faint);">Bandra West · 2 min walk from station</span>
+          <a href="#booking" class="btn-secondary" style="margin-top:10px; padding:6px 16px; font-size:13px;">Get Directions →</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>This is a sample build by <a href="index.html">Built by Rahul</a> — illustrating a clean, high-converting Landing Page for a small business.</p>
+  </div>
+</footer>
+
+<script>
+function selectTime(el, timeStr) {
+  document.querySelectorAll('.time-chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('sum-time').textContent = timeStr;
+}
+
+function updateBooking() {
+  const sel = document.getElementById('book-service');
+  const opt = sel.options[sel.selectedIndex];
+  document.getElementById('sum-svc').textContent = opt.text.split('—')[0].trim();
+  document.getElementById('sum-price').textContent = '₹' + opt.getAttribute('data-price');
+}
+
+function handleConfirmBooking() {
+  const name = document.getElementById('book-name').value || 'Guest';
+  const msg = document.getElementById('booking-msg');
+  msg.style.display = 'block';
+  msg.textContent = `✓ Reserved for ${name}! Check WhatsApp for directions and booking pin.`;
+}
+</script>
+
+</body>
+</html>
