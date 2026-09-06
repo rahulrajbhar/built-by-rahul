@@ -678,7 +678,7 @@ footer a { color: var(--navy); font-weight: 600; text-decoration: none; }
             </div>
 
             <div class="est-form-group">
-              <label>Built-Up Area (Sq. Ft)</label>
+              <label for="est-sqft">Built-Up Area (Sq. Ft)</label>
               <div class="range-wrap">
                 <input type="range" id="est-sqft" min="800" max="6000" step="100" value="1800" oninput="calcEstimate()">
                 <div class="range-val" id="est-sqft-val">1,800 sq ft</div>
@@ -744,27 +744,27 @@ footer a { color: var(--navy); font-weight: 600; text-decoration: none; }
         <form class="contact-form-card" onsubmit="handleInquiry(event)">
           <div class="form-2col">
             <div>
-              <label style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Your Name</label>
-              <input type="text" required class="est-input" placeholder="Rajesh Singhania">
+              <label for="contact-name" style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Your Name</label>
+              <input type="text" id="contact-name" required class="est-input" placeholder="Rajesh Singhania">
             </div>
             <div>
-              <label style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Phone Number</label>
-              <input type="tel" required class="est-input" placeholder="+91 98200 XXXXX">
+              <label for="contact-phone" style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Phone Number</label>
+              <input type="tel" id="contact-phone" required class="est-input" placeholder="+91 98200 XXXXX">
             </div>
           </div>
 
           <div style="margin-bottom:16px;">
-            <label style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Property Location & Type</label>
-            <input type="text" class="est-input" placeholder="e.g. 3BHK in Lower Parel or Villa in Khandala">
+            <label for="contact-location" style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Property Location & Type</label>
+            <input type="text" id="contact-location" class="est-input" placeholder="e.g. 3BHK in Lower Parel or Villa in Khandala">
           </div>
 
           <div style="margin-bottom:20px;">
-            <label style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Brief Description of Requirements</label>
-            <textarea rows="3" class="est-input" style="resize:vertical;" placeholder="Looking for full turnkey renovation starting next month..."></textarea>
+            <label for="contact-req" style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Brief Description of Requirements</label>
+            <textarea rows="3" id="contact-req" class="est-input" style="resize:vertical;" placeholder="Looking for full turnkey renovation starting next month..."></textarea>
           </div>
 
           <button type="submit" class="btn-primary" style="width:100%;">Submit Consultation Request →</button>
-          <div id="form-success" style="display:none; color:var(--copper); font-weight:600; font-size:14px; margin-top:12px; text-align:center;">
+          <div id="form-success" role="status" aria-live="polite" style="display:none; color:var(--copper); font-weight:600; font-size:14px; margin-top:12px; text-align:center;">
             ✓ Thank you! Our lead architect will reach out within 24 business hours.
           </div>
         </form>
