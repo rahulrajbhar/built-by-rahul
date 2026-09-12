@@ -611,15 +611,15 @@ footer a { color: var(--ink); text-decoration: none; font-weight: 600; }
         </div>
 
         <form style="display:flex; flex-direction:column; gap:14px;" onsubmit="handleContact(event)">
-          <input type="text" placeholder="Your Name & Company" required class="portfolio-input">
-          <input type="email" placeholder="Work Email" required class="portfolio-input">
-          <select class="portfolio-input">
+          <input type="text" aria-label="Your Name and Company" placeholder="Your Name & Company" required class="portfolio-input">
+          <input type="email" aria-label="Work Email" placeholder="Work Email" required class="portfolio-input">
+          <select aria-label="Select Advisory Format" class="portfolio-input">
             <option>4-Week Product Audit Sprint</option>
             <option>1-Day Strategy Intensive</option>
             <option>Fractional CPO Retainer</option>
           </select>
-          <textarea rows="3" placeholder="Current bottleneck or upcoming milestone..." class="portfolio-input" style="resize:vertical;"></textarea>
-          <button type="submit" class="btn-primary" style="width:100%; border:none; cursor:pointer; padding:14px;">Send Message →</button>
+          <textarea aria-label="Message Details" rows="3" placeholder="Current bottleneck or upcoming milestone..." class="portfolio-input" style="resize:vertical;"></textarea>
+          <button type="submit" id="contact-submit" class="btn-primary" style="width:100%; border:none; cursor:pointer; padding:14px;">Send Message →</button>
           <div id="contact-ok" style="display:none; color:var(--green); font-size:13px; font-weight:600; text-align:center;">
             ✓ Message received. I will review your notes and reach out shortly!
           </div>
@@ -639,7 +639,14 @@ footer a { color: var(--ink); text-decoration: none; font-weight: 600; }
 <script>
 function handleContact(e) {
   e.preventDefault();
-  document.getElementById('contact-ok').style.display = 'block';
+  const btn = document.getElementById('contact-submit');
+  btn.disabled = true;
+  btn.innerText = 'Sending...';
+
+  setTimeout(() => {
+    btn.style.display = 'none';
+    document.getElementById('contact-ok').style.display = 'block';
+  }, 800);
 }
 </script>
 

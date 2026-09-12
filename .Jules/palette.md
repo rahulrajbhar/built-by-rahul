@@ -1,0 +1,3 @@
+## 2024-05-18 - Missing Form Labels relying on Placeholders
+**Learning:** Several forms in the sample templates rely solely on `placeholder` attributes to indicate the input's purpose (e.g., in `sample-portfolio.html`). This is a critical accessibility violation because screen readers do not treat placeholders as valid labels, meaning non-sighted users will not know what data is expected in these fields.
+**Action:** When auditing or implementing forms, ensure all `input`, `select`, and `textarea` elements have explicit `<label>` elements associated with them, or use `aria-label` / `aria-labelledby` attributes if a visible label breaks the design constraints.
