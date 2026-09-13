@@ -1,0 +1,3 @@
+## 2025-02-24 - Accessible Interactive Selection Chips
+**Learning:** Custom interactive elements (like `div`s used for time slot selection) are completely inaccessible to keyboard and screen reader users by default. Wrapping them in a group with an accessible label and adding proper ARIA states is essential.
+**Action:** When implementing custom toggle button groups, use semantic `<button>` elements instead of `div`s so they are focusable and clickable via keyboard. Add a wrapper with `role="group"` and `aria-labelledby` referencing a clear label. Most importantly, manage `aria-pressed="true/false"` dynamically via JavaScript to announce the selection state accurately. Inherit `font-family` and `color` in CSS to preserve design while gaining native button semantics.
