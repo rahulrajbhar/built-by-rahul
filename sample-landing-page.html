@@ -366,6 +366,8 @@ section { padding: 70px 0; border-bottom: 1px solid var(--border); }
   border: 1px solid var(--border);
   border-radius: 8px;
   font-size: 13.5px;
+  font-family: inherit;
+  color: inherit;
   cursor: pointer;
   background: #fff;
   transition: all .15s;
@@ -375,10 +377,14 @@ section { padding: 70px 0; border-bottom: 1px solid var(--border); }
   justify-content: center;
   touch-action: manipulation;
 }
-.time-chip.active, .time-chip:hover {
+.time-chip.active, .time-chip:hover, .time-chip[aria-pressed="true"] {
   background: var(--accent);
   color: #fff;
   border-color: var(--accent);
+}
+.time-chip:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .booking-summary {
@@ -599,13 +605,13 @@ footer a { color: var(--ink); text-decoration: none; font-weight: 600; }
             </div>
 
             <div class="form-group">
-              <label>Select Time Slot</label>
-              <div class="time-chips">
-                <div class="time-chip" onclick="selectTime(this, '08:00 AM')">08:00 AM</div>
-                <div class="time-chip active" onclick="selectTime(this, '10:30 AM')">10:30 AM</div>
-                <div class="time-chip" onclick="selectTime(this, '01:00 PM')">01:00 PM</div>
-                <div class="time-chip" onclick="selectTime(this, '04:30 PM')">04:30 PM</div>
-                <div class="time-chip" onclick="selectTime(this, '07:00 PM')">07:00 PM</div>
+              <label id="time-slot-label">Select Time Slot</label>
+              <div class="time-chips" role="group" aria-labelledby="time-slot-label">
+                <button type="button" class="time-chip" aria-pressed="false" onclick="selectTime(this, '08:00 AM')">08:00 AM</button>
+                <button type="button" class="time-chip active" aria-pressed="true" onclick="selectTime(this, '10:30 AM')">10:30 AM</button>
+                <button type="button" class="time-chip" aria-pressed="false" onclick="selectTime(this, '01:00 PM')">01:00 PM</button>
+                <button type="button" class="time-chip" aria-pressed="false" onclick="selectTime(this, '04:30 PM')">04:30 PM</button>
+                <button type="button" class="time-chip" aria-pressed="false" onclick="selectTime(this, '07:00 PM')">07:00 PM</button>
               </div>
             </div>
 
@@ -755,8 +761,12 @@ footer a { color: var(--ink); text-decoration: none; font-weight: 600; }
 
 <script>
 function selectTime(el, timeStr) {
-  document.querySelectorAll('.time-chip').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.time-chip').forEach(c => {
+    c.classList.remove('active');
+    c.setAttribute('aria-pressed', 'false');
+  });
   el.classList.add('active');
+  el.setAttribute('aria-pressed', 'true');
   document.getElementById('sum-time').textContent = timeStr;
 }
 
