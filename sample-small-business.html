@@ -754,6 +754,13 @@ footer a { color: var(--navy); font-weight: 600; text-decoration: none; }
           </div>
 
           <div style="margin-bottom:16px;">
+            <label for="contact-location" style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Property Location & Type</label>
+            <input type="text" id="contact-location" class="est-input" placeholder="e.g. 3BHK in Lower Parel or Villa in Khandala">
+          </div>
+
+          <div style="margin-bottom:20px;">
+            <label for="contact-req" style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Brief Description of Requirements</label>
+            <textarea rows="3" id="contact-req" class="est-input" style="resize:vertical;" placeholder="Looking for full turnkey renovation starting next month..."></textarea>
             <label for="contact-property" style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Property Location & Type</label>
             <input type="text" id="contact-property" class="est-input" placeholder="e.g. 3BHK in Lower Parel or Villa in Khandala">
           </div>
@@ -764,7 +771,7 @@ footer a { color: var(--navy); font-weight: 600; text-decoration: none; }
           </div>
 
           <button type="submit" class="btn-primary" style="width:100%;">Submit Consultation Request →</button>
-          <div id="form-success" style="display:none; color:var(--copper); font-weight:600; font-size:14px; margin-top:12px; text-align:center;">
+          <div id="form-success" role="status" aria-live="polite" style="display:none; color:var(--copper); font-weight:600; font-size:14px; margin-top:12px; text-align:center;">
             ✓ Thank you! Our lead architect will reach out within 24 business hours.
           </div>
         </form>
