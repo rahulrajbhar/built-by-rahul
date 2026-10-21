@@ -377,10 +377,14 @@ section { padding: 70px 0; border-bottom: 1px solid var(--border); }
   justify-content: center;
   touch-action: manipulation;
 }
-.time-chip.active, .time-chip:hover {
+.time-chip.active, .time-chip:hover, .time-chip[aria-pressed="true"] {
   background: var(--accent);
   color: #fff;
   border-color: var(--accent);
+}
+.time-chip:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .booking-summary {
@@ -603,6 +607,8 @@ footer a { color: var(--ink); text-decoration: none; font-weight: 600; }
             <div class="form-group">
               <label>Select Time Slot</label>
               <div class="time-chips">
+              <label id="time-slot-label">Select Time Slot</label>
+              <div class="time-chips" role="group" aria-labelledby="time-slot-label">
                 <button type="button" class="time-chip" aria-pressed="false" onclick="selectTime(this, '08:00 AM')">08:00 AM</button>
                 <button type="button" class="time-chip active" aria-pressed="true" onclick="selectTime(this, '10:30 AM')">10:30 AM</button>
                 <button type="button" class="time-chip" aria-pressed="false" onclick="selectTime(this, '01:00 PM')">01:00 PM</button>
