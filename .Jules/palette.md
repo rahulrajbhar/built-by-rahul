@@ -1,0 +1,3 @@
+## 2026-08-31 - [Adding aria-pressed to filter tab buttons]
+**Learning:** [When using custom buttons to simulate a tab or filter selection interface, screen readers need to know which option is currently active. While a visual cue (like an `.active` class) is enough for sighted users, `aria-pressed="true"` (or `aria-selected="true"` if using a proper tablist role) communicates the state effectively to assistive technologies.]
+**Action:** [Ensure stateful custom toggle buttons, such as category filters or tabs without full ARIA tab roles, toggle the `aria-pressed` or `aria-selected` attribute via JavaScript alongside visual class changes.]
