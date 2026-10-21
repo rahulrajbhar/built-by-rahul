@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #FAFAF8;
+  --card: #FFFFFF;
+  --ink: #16181D;
+  --ink-light: #565C68;
+  --ink-faint: #8A8F98;
+  --green: #0E8F6B;
+  --green-deep: #0A6E53;
+  --coral: #FF6B4A;
+  --coral-deep: #E5502F;
+  --border: #E4E6E8;
+  --display: 'Bricolage Grotesque', sans-serif;
+  --body: 'Inter', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+@theme {
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-ink-light: var(--ink-light);
+  --color-ink-faint: var(--ink-faint);
+  --color-brand-green: var(--green);
+  --color-brand-green-deep: var(--green-deep);
+  --color-coral: var(--coral);
+  --color-coral-deep: var(--coral-deep);
+  --color-border: var(--border);
+  --font-display: var(--display);
+  --font-body: var(--body);
+  --font-mono: var(--mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Keyframe animations */
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+.animate-rise {
+  animation: riseIn 0.6s ease forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
