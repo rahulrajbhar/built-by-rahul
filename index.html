@@ -376,6 +376,8 @@ footer{ border-top:1px solid var(--border); padding:32px 0; display:flex; justif
     <p class="sec-intro reveal">Explore full working sample builds crafted across each of the four core offerings — built with real requirements, fast load times, and conversion-ready layouts.</p>
     
     <div class="sample-tabs reveal" role="group" aria-label="Sample filters">
+    <div class="sample-tabs reveal" role="group" aria-label="Filter samples">
+    <div class="sample-tabs reveal">
       <button class="sample-tab-btn active" aria-pressed="true" onclick="filterSamples(this, 'all')">All Samples (4)</button>
       <button class="sample-tab-btn" aria-pressed="false" onclick="filterSamples(this, 'landing')">Landing Pages</button>
       <button class="sample-tab-btn" aria-pressed="false" onclick="filterSamples(this, 'smallbiz')">Small Business Sites</button>
@@ -383,7 +385,7 @@ footer{ border-top:1px solid var(--border); padding:32px 0; display:flex; justif
       <button class="sample-tab-btn" aria-pressed="false" onclick="filterSamples(this, 'refresh')">Website Refresh</button>
     </div>
 
-    <div class="sample-list reveal">
+    <div class="sample-list reveal" aria-live="polite">
       <!-- Sample 01: Landing Page -->
       <div id="sample-landing" class="sample-card" data-cat="landing">
         <div class="sample-preview" style="background:linear-gradient(150deg, #183327, #2e6b52);">
@@ -596,6 +598,9 @@ function filterSamples(btn, category) {
   cards.forEach(card => {
     if (category === 'all' || card.getAttribute('data-cat') === category) {
       card.style.display = 'grid';
+      card.style.animation = 'none';
+      card.offsetHeight; /* trigger reflow */
+      card.style.animation = 'riseIn 0.5s ease forwards';
     } else {
       card.style.display = 'none';
     }
